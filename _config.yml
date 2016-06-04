@@ -24,3 +24,5 @@ markdown: kramdown
 collections: 
   movies:
     output: true
+
+future: true
