@@ -3,82 +3,30 @@ layout: default
 title: Doblajes
 permalink: /doblajes/
 ---
+{% assign movies = site.movies | sort: 'date' | reverse %}
 <div class="container">
   <div class="section">
     <div class="row">
-
+      {% for movie in movies %}
       <div class="col s12 m6 l3">
         <!-- Promo Content 1 goes here -->
         <div class="card medium">
           <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="{{site.url}}/assets/images/movies/independence.day.resurgence.jpg">
+            <img class="activator" src="{{site.url}}/assets/images/movies/{{ movie.poster }}">
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Independence Day</span>
+            <span class="card-title activator grey-text text-darken-4">{{ movie.transalated }}</span>
             <p><a href="#">Enlace a eldoblaje.com</a></p>
           </div>
           <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Independence Day<i class="material-icons right">close</i></span>
-            <p>Personaje: Charlie</p>
-            <p>Actor Original; Travis Tope</p>
+            <span class="card-title grey-text text-darken-4">{{ movie.translated }}<i class="material-icons right">close</i></span>
+            <p>Personaje: {{ movie.character}}</p>
+            <p>Actor Original: {{ movie.actor }}</p>
             <p>Demo soundcloud</p>
           </div>
         </div>       
       </div>
-  
-
-      <div class="col s12 m6 l3">
-      <!-- Promo Content 2 goes here -->
-        <div class="card medium">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="{{site.url}}/assets/images/movies/warcraft.jpg">
-          </div>
-          <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Warcraft</span>
-            <p><a href="#">Enlace a eldoblaje.com</a></p>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Warcraft: El origen<i class="material-icons right">close</i></span>
-            <p>Here is some more information about this product that is only revealed once clicked on.</p>
-          </div>
-        </div>
-      </div>
- 
-      <div class="col s12 m6 l3">
-      <!-- Promo Content 3 goes here -->
-        <div class="card medium">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="{{site.url}}/assets/images/movies/batman.v.superman.jpg">
-          </div>
-          <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4" >Batman V Superman</span>
-            <p><a href="#">Enlace a eldoblaje.com</a></p>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-            <p>Here is some more information about this product that is only revealed once clicked on.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class= "col s12 m6 l3">
-        <div class="card medium">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="{{site.url}}/assets/images/movies/the.revenant.jpg">
-          </div>
-          <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">El Renacido</span>
-            <p><a href="#">Enlace a eldoblaje.com</a></p>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-            <p>Here is some more information about this product that is only revealed once clicked on.</p>
-          </div>
-        </div>
-      </div>
-
-
-
+      {% endfor %}
     </div>
  </div>
 </div>
