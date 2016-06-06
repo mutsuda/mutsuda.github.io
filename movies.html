@@ -10,19 +10,21 @@ permalink: /doblajes/
       {% for movie in movies %}
       <div class="col s12 m6 l3">
         <!-- Promo Content 1 goes here -->
-        <div class="card medium">
+        <div class="card small">
           <div class="card-image waves-effect waves-block waves-light">
             <img class="activator" src="{{site.url}}/assets/images/movies/{{ movie.poster }}">
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">{{ movie.translated }}</span>
-            <p><a href="{{ movie.eldoblaje }}">ficha en eldoblaje.com</a></p>
+            <p>{{ movie.date | date: "%d %b %Y"}}</p>
           </div>
           <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">{{ movie.translated }}<i class="material-icons right">close</i></span>
-            <p>Personaje: {{ movie.character}}</p>
-            <p>Actor Original: {{ movie.actor }}</p>
-            <p>Demo soundcloud</p>
+            <p>Personaje: <b>{{ movie.character}}</b></p>
+            <p>Actor Original:<b> {{ movie.actor }}</b></p>
+            {% if movie.audio-url %}
+            <p><iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ movie.audio-url }}&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=true"></iframe>
+            {% endif %}
           </div>
         </div>       
       </div>
