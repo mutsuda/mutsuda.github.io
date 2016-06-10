@@ -5,20 +5,22 @@
       <a id="logo-container" href="#" class="brand-logo">MM</a>
       
       <ul class="right hide-on-med-and-down">
-      {% for my_page in site.pages %}
+      {% assign pages = site.pages | sort:"order" %}
+      {% for my_page in pages %}
         {% if my_page.title %}
-          
             <li><a href={{ my_page.url | prepend: site.baseurl }}>{{ my_page.title }}</a></li>
         {% endif %}
       {% endfor %}
+        <li><a href="http://medium.com/mutsuda">Blog</a></li>
       </ul>
       
       <ul id="nav-mobile" class="side-nav">
-      {% for my_page in site.pages %}
+      {% for my_page in pages %}
         {% if my_page.title %}
           <li><a href={{ my_page.url | prepend: site.baseurl }}>{{ my_page.title }}</a></li>
         {% endif %}
       {% endfor %}
+        <li><a href="http://medium.com/mutsuda">Blog</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
