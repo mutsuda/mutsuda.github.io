@@ -1,3 +1,4 @@
+// Function for filtering dubbing page
 $('.distribution-wrap, .year-wrap').delegate('select', 'change', function() 
 {
   var $lis = $('.dubbings > div'), 
@@ -44,9 +45,3 @@ $('.distribution-wrap, .year-wrap').delegate('select', 'change', function()
   }
 }); 
 
-
-
-
-$(document).ready(function() {
-    $('select').material_select();
-  });

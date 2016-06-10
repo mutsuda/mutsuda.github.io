@@ -1,35 +1,25 @@
 <header>
-<!--
-<nav class="white" role="navigation">
-  <div class="nav-wrapper container">
-    <href="#" class="brand-logo">Masumi Mutsuda</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      {% for my_page in site.pages %}
-         {% if my_page.title %}
-            <li><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title}}</a></li>
-         {% endif %}
-      {% endfor %}
-     </ul>
-   </dig>
-  </nav> 
--->
+
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo">MM</a>
-
+      
+      <ul class="right hide-on-med-and-down">
       {% for my_page in site.pages %}
         {% if my_page.title %}
           
-          <ul class="right hide-on-med-and-down">
             <li><a href={{ my_page.url | prepend: site.baseurl }}>{{ my_page.title }}</a></li>
-          </ul>
-
-          <ul id="nav-mobile" class="side-nav">
-            <li><a href={{ my_page.url | prepend: site.baseurl }}>{{ my_page.title }}</a></li>
-          </ul>
         {% endif %}
       {% endfor %}
-
+      </ul>
+      
+      <ul id="nav-mobile" class="side-nav">
+      {% for my_page in site.pages %}
+        {% if my_page.title %}
+          <li><a href={{ my_page.url | prepend: site.baseurl }}>{{ my_page.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+      </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
