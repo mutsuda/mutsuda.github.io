@@ -1,0 +1,43 @@
+---
+layout: default
+order: 2
+title: Publicidad
+permalink: /publicidad/
+---
+{% assign ads = site.data.advertising | sort: 'date' | reverse %}
+<div class="container">
+  <div class="section">
+    <div class="row">
+      {% for ad in ads %}
+      <div class="col s12 m6 l3">
+        <!-- Promo Content 1 goes here -->
+        <div class="ads">
+          <div class="ad" data-category="{{ ad.type }} {{ad.date | date: "%Y"}}">
+            <div class="card small">
+              <div class="card-image waves-effect waves-block waves-light">
+          <!--  <img class="activator" src="{{site.url}}/assets/images/ads/{{ ad.poster }}"> -->
+                <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='{{ ad.video-url }}' frameborder='0' allowfullscreen></iframe></div>
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">{{ ad.brand }}</span>
+                <p>{{ ad.campaign }}</p>
+              </div>
+      <!--    <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">{{ ad.brand }}<i class="material-icons right">close</i></span>
+                <p>{{ ad.date | date: "%Y" }}</p>
+                {% if ad.audio-url %}
+                <iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ ad.audio-url }}&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=true"></iframe>
+                {% endif %}
+                {% if ad.video-url %}
+                  <iframe width="250" height="141" src="{{ ad.video-url }}" frameborder="0" allowfullscreen></iframe>
+                {% endif %}
+              </div> -->
+            </div>      
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+ </div>
+</div>
+
