@@ -5,14 +5,10 @@ layout: default
 <div id="index-banner" class="parallax-container">
   <div class="section no-pad-bot">
     <div class="container">
-      <br><br>
       <h1 class="header center teal-text text-lighten-2">Masumi Mutsuda</h1>
       <div class="row center">
-        <h5 class="header col s12 light">Voice actor and CS engineer</h5>
-        <h5 class="header col s12 light">Developer and media strategist at itnig</h5>
-        <h5 class="header col s12 light">Piccolo and flute player at Orquestra UPC</h5>
+        <h5 class="header col s12 light">twitter | facebook | instagram</h5>
       </div>
-      <br><br>
     </div>
   </div>
   <div class="parallax"><img src="{{site.url}}/assets/images/background/background1.jpg" alt="Unsplashed background img 1"></div>
@@ -103,8 +99,7 @@ layout: default
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">Primer papel como <b>Haley Joel Osment</b> en <b>Forrest Gump</b></h5>
-          <h5 class="header col s12 light">Voz habitual de <b>Logan Lerman</b> y <b>Jamie Blackley</b></h5>
+          <h5 class="header col s12 light">Voice actor and CS engineer // developer and media strategist at <a href="http://itnig.net"><b>itnig</b></a> // piccolo and flute player at <a href="http://orquestra.upc.edu"><b>Orquestra UPC</b></a></h5>
         </div>
       </div>
     </div>
@@ -120,7 +115,11 @@ layout: default
         <div class="col s12 m6 l3">
           <div class="card small">
             <div class="card-image waves-effect waves-block waves-light">
+            {% if ad.video-url %}
               <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='{{ ad.video-url }}' frameborder='0' allowfullscreen></iframe></div>
+            {% else %}
+            <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ ad.audio-url }}&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;    show_user=true&amp;show_reposts=false&amp;visual=true"' frameborder='0' allowfullscreen></iframe></div>
+            {% endif %}
             </div>
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4">{{ ad.brand }}</span>

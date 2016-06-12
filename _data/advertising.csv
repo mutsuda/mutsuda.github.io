@@ -1,5 +1,5 @@
-date,brand,campaign,language,audio-url,video-url,snapshot,type
-2015-12-18,Banc Sabadell,Los Cazacaramelos,es,267024868%3Fsecret_token%3Ds-CAmeS,https://www.youtube.com/embed/-uER-gqa3Z8,,spot_internet
+date,brand,campaign,language,audio-url,video-url,download-url,type
+2015-12-18,Banc Sabadell,Los Cazacaramelos,es,267024868%3Fsecret_token%3Ds-CAmeS,https://www.youtube.com/embed/-uER-gqa3Z8,https://api.soundcloud.com/tracks/267024868/download?secret_token=s-CAmeS&client_id=a3e059563d7fd3372b49b37f00a00bcf,spot_internet
 2014-10-7,Kinder,Kinder Sorpresa,es,,https://youtube.com/embed/CpZelud2e-w,,spot_internet
 2013-02-13,Consejo de la Juventud de España,Que no recorten tu voz,es,,https://www.youtube.com/embed/ODZh6tzCXgc,,spot_internet
 2012-01-04,LaCaixa,Carnet Jove 2012,ca,,https://youtube.com/embed/cDW6FVln80c,,spot
@@ -7,4 +7,4 @@ date,brand,campaign,language,audio-url,video-url,snapshot,type
 2012-01-01,DKV,Super Sonriente,es,,https://player.vimeo.com/video/41017565,,spot
 2012-01-01,DKV,Super Relajado,es,,https://player.vimeo.com/video/41017568,,spot
 2014-04-28,Volkswagen,Nuevo Polo - Como un Tigre,es,,https://www.youtube.com/embed/OkQEdAvlH6I,,spot
-2015-06-24,Volkswagen,Nuevo A-Polo,es,267024866%3Fsecret_token%3Ds-9HtV2,,,cuña
+2015-06-24,Volkswagen,Nuevo A-Polo,es,267024866%3Fsecret_token%3Ds-9HtV2,,https://api.soundcloud.com/tracks/267024866/download?secret_token=s-9HtV2&client_id=cUa40O3Jg3Emvp6Tv4U6ymYYO50NUGpJ,cuña
