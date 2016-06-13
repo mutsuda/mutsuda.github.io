@@ -23,23 +23,7 @@ layout: default
         <h3>Doblajes recientes</h3>
         {% for movie in movies limit:4 %}
         <div class="col s12 m6 l3">
-          <div class="card small">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="{{site.url}}/assets/images/movies/{{ movie.poster }}">
-            </div>
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">{{ movie.translated }}</span>
-              <p>{{ movie.date | date: "%d %b %Y"}}</p>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">{{ movie.translated }}<i class="material-icons right">close</i></span>
-              <p>Personaje: <b>{{ movie.character}}</b></p>
-              <p>Actor Original:<b> {{ movie.actor }}</b></p>
-              {% if movie.audio-url %}
-              <p><iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ movie.audio-url }}&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=true"></iframe>
-              {% endif %}
-            </div>
-          </div>
+          {% include movie_card.html %}
         </div>
       {% endfor %}
       </div>
@@ -49,6 +33,7 @@ layout: default
 
     </div>
   </div>
+
 
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
@@ -63,29 +48,13 @@ layout: default
   </div>
 
   <div class="container">
-  {% assign series = site.data.dubbings | where:"type","Serie" | sort: 'date' | reverse %}
+  {% assign movies = site.data.dubbings | where:"type","Serie" | sort: 'date' | reverse %}
     <div class="section">
       <div class="row">
         <h3>Series recientes</h3>
-        {% for serie in series limit:4 %}
+        {% for movie in movies limit:4 %}
         <div class="col s12 m6 l3">
-          <div class="card small">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="{{site.url}}/assets/images/movies/{{ serie.poster }}">
-            </div>
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">{{ serie.translated }}</span>
-              <p>{{ serie.date | date: "%d %b %Y"}}</p>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">{{ serie.translated }}<i class="material-icons right">close</i></span>
-              <p>Personaje: <b>{{ serie.character}}</b></p>
-              <p>Actor Original:<b> {{ serie.actor }}</b></p>
-              {% if serie.audio-url %}
-              <p><iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ serie.audio-url }}&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=true"></iframe>
-              {% endif %}
-            </div>
-          </div>
+          {% include movie_card.html %}
         </div>
       {% endfor %}
       </div>
