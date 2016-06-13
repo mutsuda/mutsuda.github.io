@@ -3,7 +3,11 @@
     <img class="activator" src="{{site.url}}/assets/images/movies/{{ movie.poster }}">    
   </div>
   <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4">{{ movie.translated }}</span>
+    {% if  movie.translated.size > 23 %}
+      <span class="card-title activator grey-text text-darken-4">{{ movie.translated | slice: 0,22 | append: "..."}}</span>
+    {% else %}
+      <span class="card-title activator grey-text text-darken-4">{{ movie.translated }}</span>
+    {% endif %}
     <p>{{ movie.date | date: "%d %b %Y"}}</p>
   </div>
   <div class="card-reveal">
