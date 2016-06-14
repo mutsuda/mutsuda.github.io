@@ -6,7 +6,6 @@ $('.distribution-wrap, .year-wrap').delegate('select', 'change', function()
   if ($checked.length) 
   {              
     var type_selector = '';
-    var year_selector = '';
     $($checked).each(function(index, element)
     {
       console.log(element.id);
@@ -21,22 +20,9 @@ $('.distribution-wrap, .year-wrap').delegate('select', 'change', function()
           type_selector += ",[data-category~='" + element.id + "']";
         }
       }
-      else
-      { 
-        if(year_selector === '') 
-        {
-          year_selector += "[data-category~='" + element.id + "']";                  
-        } 
-        else
-        {
-          year_selector += ",[data-category~='" + element.id + "']";
-        }
-
-      }
     });                        
     $lis.hide(); 
-    console.log("type_s: "+type_selector + " " +"year_s: "+year_selector)
-    $('.dubbings > div').hide().filter(type_selector).filter(year_selector).show();        
+    $('.dubbings > div').hide().filter(type_selector).show();        
    
   } 
   else 
@@ -45,3 +31,5 @@ $('.distribution-wrap, .year-wrap').delegate('select', 'change', function()
   }
 }); 
 
+
+  

@@ -4,6 +4,8 @@ order: 1
 title: Doblajes
 permalink: /doblajes/
 ---
+
+
 <div id="index-banner" class="parallax-container">
   <div class="section no-pad-bot">
     <div class="container">
@@ -21,6 +23,9 @@ permalink: /doblajes/
 
 
 <div class="container">
+  
+
+  
   <div class="distribution-wrap">
     <div class="input-field col s12 m6 l3">
       <select multiple>
@@ -30,6 +35,7 @@ permalink: /doblajes/
       <label>Tipo</label>
     </div>
   </div>
+<!--
   <div class="year-wrap">
     <div class="input-field col s12 m6 l3">
       <select multiple>
@@ -58,7 +64,14 @@ permalink: /doblajes/
       <label>Años</label>
     </div>
   </div>
+-->
+  <div class="year-wrap">
+    <label>Años</label>
+    <div id="slider"></div>
+  </div>
 </div>
+
+
 
 {% assign movies = site.data.dubbings | sort: 'date' | reverse %}
 <div class="container">

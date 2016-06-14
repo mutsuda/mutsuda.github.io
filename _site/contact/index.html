@@ -6,6 +6,7 @@
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="/css/nouislider.css"  media="screen,projection"/>
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -96,7 +97,7 @@
 
 
 <div class="container">
- <div class="row">
+  <div class="row">
     <form action="http://formspree.io/mutsuda@gmail.com" method="POST" class="col s12">
       <div class="row">
         <div class="input-field col s6">
@@ -115,21 +116,15 @@
         </div>
       </div>
       <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s12">
-          <textarea id="textarea1" name="body" class="materialize-textarea"></textarea>
-          <label for="textarea1">Textarea</label>
-        </div>
-
-         <button class="btn waves-effect waves-light" type="submit" value="Send" name="action">Submit
-    <i class="material-icons right">send</i>
-  </button>
+      <div class="input-field col s12">
+        <textarea id="textarea1" name="body" class="materialize-textarea"></textarea>
+        <label for="textarea1">Textarea</label>
       </div>
+      <button class="btn waves-effect waves-light" type="submit" value="Send" name="action">Submit
+        <i class="material-icons right">send</i>
+      </button>
     </form>
   </div> 
-    </form>
-  </div>
 </div> 
 
       </div>
@@ -177,6 +172,8 @@
   <script src="/js/materialize.js"></script>
   <script src="/js/init.js"></script>
   <script src="/js/functions.js"></script>
+  <script src="/js/nouislider.js"></script>
+  <script src="/js/slider.js"></script>
   </body>
 
 </html>
