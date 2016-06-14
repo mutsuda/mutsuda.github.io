@@ -5,24 +5,25 @@ $('.distribution-wrap, .year-wrap').delegate('select', 'change', function()
   $checked = $('option:selected');  
   if ($checked.length) 
   {              
-    var type_selector = '';
+    type_filter = '';
     $($checked).each(function(index, element)
     {
-      console.log(element.id);
       if (element.id == "35mm" || element.id == "Serie")
       { 
-        if(type_selector === '') 
+        if(type_filter === '') 
         {
-          type_selector += "[data-category~='" + element.id + "']";                  
+          type_filter += "[data-category~='" + element.id + "']";                  
         } 
         else
         {
-          type_selector += ",[data-category~='" + element.id + "']";
+          type_filter += ",[data-category~='" + element.id + "']";
         }
       }
     });                        
     $lis.hide(); 
-    $('.dubbings > div').hide().filter(type_selector).show();        
+    console.log(type_filter);
+    console.log(year_filter);
+    $('.dubbings > div').hide().filter(type_filter).filter(year_filter).show();        
    
   } 
   else 

@@ -1,3 +1,6 @@
+var year_filter="";
+var type_filter="[data-category~='35mm'],[data-category~='Serie']";
+
 var slider = document.getElementById('slider');
   noUiSlider.create(slider, {
    start: [1996, 2016],
@@ -14,23 +17,22 @@ var slider = document.getElementById('slider');
 
 // When the slider value changes, update the input and span
 slider.noUiSlider.on('update', function( values, handle ) {
-  console.log(handle);
-  console.log(values);
   var year = values[0];
-  var filter = "";
+  year_filter = "";
   while (year<=values[1])
   {
-    console.log("year: " + year + " " +"values: "+ values[1]);
-    if (filter == '')
+    //console.log("year: " + year + " " +"values: "+ values[1]);
+    if (year_filter == '')
     {
-      filter += "[data-category~='" + year + "']";
+      year_filter += "[data-category~='" + year + "']";
     }
     else
     {
-      filter += ",[data-category~='" + year + "']";
+      year_filter += ",[data-category~='" + year + "']";
     }
     year = parseInt(year) +  1;
   }
-  console.log(filter);
-  $('.dubbings > div').hide().filter(filter).show();
+  console.log(year_filter);
+  console.log(type_filter);
+  $('.dubbings > div').hide().filter(type_filter).filter(year_filter).show();
 });
