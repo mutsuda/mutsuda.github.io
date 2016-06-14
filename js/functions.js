@@ -21,8 +21,6 @@ $('.distribution-wrap, .year-wrap').delegate('select', 'change', function()
       }
     });                        
     $lis.hide(); 
-    console.log(type_filter);
-    console.log(year_filter);
     $('.dubbings > div').hide().filter(type_filter).filter(year_filter).show();        
    
   } 

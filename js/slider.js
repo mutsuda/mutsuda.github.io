@@ -21,7 +21,6 @@ slider.noUiSlider.on('update', function( values, handle ) {
   year_filter = "";
   while (year<=values[1])
   {
-    //console.log("year: " + year + " " +"values: "+ values[1]);
     if (year_filter == '')
     {
       year_filter += "[data-category~='" + year + "']";
@@ -32,7 +31,5 @@ slider.noUiSlider.on('update', function( values, handle ) {
     }
     year = parseInt(year) +  1;
   }
-  console.log(year_filter);
-  console.log(type_filter);
   $('.dubbings > div').hide().filter(type_filter).filter(year_filter).show();
 });
