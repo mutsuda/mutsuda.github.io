@@ -8,16 +8,13 @@ $('.distribution-wrap, .year-wrap').delegate('select', 'change', function()
     type_filter = '';
     $($checked).each(function(index, element)
     {
-      if (element.id == "35mm" || element.id == "Serie")
-      { 
-        if(type_filter === '') 
-        {
-          type_filter += "[data-category~='" + element.id + "']";                  
-        } 
-        else
-        {
-          type_filter += ",[data-category~='" + element.id + "']";
-        }
+      if(type_filter === '') 
+      {
+        type_filter += "[data-category~='" + element.id + "']";                  
+      } 
+      else
+      {
+        type_filter += ",[data-category~='" + element.id + "']";
       }
     });                        
     $lis.hide(); 
