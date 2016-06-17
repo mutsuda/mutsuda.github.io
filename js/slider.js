@@ -1,5 +1,5 @@
 var year_filter="";
-var type_filter="[data-category~='35mm'],[data-category~='Serie']";
+var type_filter="[data-category~='35mm'],[data-category~='Serie'],[data-category~='Video']";
 
 var slider = document.getElementById('slider');
   noUiSlider.create(slider, {
