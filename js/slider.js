@@ -2,13 +2,14 @@ var year_filter="";
 var type_filter="[data-category~='35mm'],[data-category~='Serie'],[data-category~='Video']";
 
 var slider = document.getElementById('slider');
+  current_year = new Date().getFullYear()
   noUiSlider.create(slider, {
-   start: [1996, 2016],
+   start: [1994, current_year],
    connect: true,
    step: 1,
    range: {
-     'min': 1996,
-     'max': 2016
+     'min': 1994,
+     'max': current_year
    },
    format: wNumb({
      decimals: 0
@@ -17,6 +18,7 @@ var slider = document.getElementById('slider');
 
 // When the slider value changes, update the input and span
 slider.noUiSlider.on('update', function( values, handle ) {
+  label = document.getElementById('year-label');
   var year = values[0];
   year_filter = "";
   while (year<=values[1])
@@ -30,6 +32,14 @@ slider.noUiSlider.on('update', function( values, handle ) {
       year_filter += ",[data-category~='" + year + "']";
     }
     year = parseInt(year) +  1;
+  }
+  if (values[0]==values[1])
+  {
+    label.innerHTML = values[0]
+  }
+  else
+  {
+    label.innerHTML = values[0] + " - " + values[1];
   }
   $('.dubbings > div').hide().filter(type_filter).filter(year_filter).show();
 });
