@@ -1,0 +1,39 @@
+---
+layout: default
+permalink: /actores/
+---
+<div id="index-banner" class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <h1 class="header center">Actores</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Algunos actores a los que he doblado</h5>
+      </div>
+    </div>
+  </div>
+  <div class="parallax"><img src="{{site.url}}/assets/images/background/background1.jpg" alt="Unsplashed background img 1"></div>
+</div>
+
+
+
+
+
+{% assign movies = site.data.dubbings | sort: 'actor'  %}
+<div class="container">
+  <div class="section">
+    <div class="row">
+      {% for movie in movies %}
+      {% if movie.audio-url %}
+      <div class="col s12 m6 l3">
+        <div class="movies">
+          <div class="movie">
+            {% include actor_card.html %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
