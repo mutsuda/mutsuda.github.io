@@ -1,8 +1,8 @@
-date,title,translated,poster,actor,character,audio-url,type,language,video-url-url
+date,title,translated,poster,actor,character,audio-url,type,language
 2016-03-23,Batman V Superman,Batman V Superman,batman.v.superman.jpg,Ezra Miller,The Flash,,35mm,es
 2015-12-04,In the heart of the sea,En el corazón del mar,in.the.heart.of.the.sea.jpg,Frank Dillane,Henry Coffin,,35mm,es
 2016-07-01,Independence Day: Resurgence,Independence Day: Contraataque,independence.day.resurgence.jpg,Travis Tope,Charlie,,35mm,es
-2015-09-25,Irrational Man,Irrational Man,irrational.man.jpg,Jamie Blackley,Roy,272002469%3Fsecret_token%3Ds-cwg2K,35mm,es
+2015-09-25,Irrational Man,Irrational Man,irrational.man.jpg,Jamie Blackley,Roy,,35mm,es
 2016-04-26,Race,El Héroe de Berlín,race.jpg,Stephan James,Jesse Owens,267024861%3Fsecret_token%3Ds-YcmBO,35mm,es
 2015-06-26,San Andreas,San Andrés,san.andreas.jpg,Hugo Johnstone-Burt,Ben Taylor,,35mm,es
 2016-02-05,The Revenant,El Renacido,the.revenant.jpg,Will Poulter,Bridger,,35mm,es
@@ -14,23 +14,22 @@ date,title,translated,poster,actor,character,audio-url,type,language,video-url-u
 2014-09-19,If I Stay,Si decido quedarme,if.i.stay.jpg,Jamie Blackley,Adam,267024867%3Fsecret_token%3Ds-3PJuz,35mm,es
 2014-02-21,The Monuments Men,Monuments Men,the.monuments.men.jpg,Dimitri Leonidas,Sam Epstein,,35mm,es
 2015-01-09,Fury,Corazones de Acero,fury.jpg,Logan Lerman,Norman Ellison,,35mm,es
-2014-04-04,Noah,Noé,noah.jpg,Logan Lerman,Cam,271974568%3Fsecret_token%3Ds-sjWZo,35mm,es
+2014-04-04,Noah,Noé,noah.jpg,Logan Lerman,Cam,,35mm,es
 2014-04-30,Divergent,Divergente,divergent.jpg,Christian Madsen,Al,,35mm,es
-2010-01-12,The Middle,The Middle,the.middle.jpg,Charlie McDermott,Axl,,Serie,es
+2010-01-01,The Middle,The Middle,the.middle.jpg,Charlie McDermott,Axl,,Serie,es
 2013-11-15,Blue Jasmine,Blue Jasmine,blue.jasmine.jpg,Alden Ehrenreich,Danny,,35mm,es
 2013-06-14,Stuck in Love,Un invierno en la playa,stuck.in.love.jpg,Nat Wolff,Rusty Borgens,,35mm,es
 2014-10-13,American Horror Story: Freak Show,American Horror Story: Freak Show,american.horror.story.freak.show.jpg,Finn Wittrock,Dandy Mott,267024875%3Fsecret_token%3Ds-NQrDS,Serie,es
-2015-10-07,American Horror Story: Hotel,American Horror Story: Hotel,american.horror.story.hotel.jpg,Finn Wittrock,Tristan / Valentino,271998999%3Fsecret_token%3Ds-Q92kq,Serie,es
 1999-06-23,The Matrix,Matrix,the.matrix.jpg,Rowan Witt,Niño cuchara,,35mm,es
 1994-09-23,Forrest Gump,Forrest Gump,forrest.gump.jpg,Haley Joel Osment,Forrest Gump Jr.,,35mm,es
 1995-04-19,The Little Rascals,Una pandilla de pillos,the.little.rascals.jpg,Ross Bagley,William Buckwheat Thomas,,35mm,es
-1996-03-29,All dogs go to heaven 2,Todos Los Perros van al cielo 2,all.dogs.go.to.heaven.2.jpg,Adam Wylie,David,,35mm,es,zSspoESshs4
+1996-03-29,All dogs go to heaven 2,Todos Los Perros van al cielo 2,all.dogs.go.to.heaven.2.jpg,Adam Wylie,David,,35mm,es
 1997-01-01,Smart Guy,Este chico es un genio,smart.guy.jpg,Tahj Mowry,TJ Henderson,,Serie,es
 1997-02-03,Space Jam,Space Jam,space.jam.jpg,Eric Gordon,Marcus Jordan,,35mm,es
 1997-02-21,The Preacher's Wife,La Mujer del Predicador,the.preachers.wife.jpg,Edmund Justin Pierre,Jeremiah Biggs,,35mm,es
 1997-05-09,Liar liar,Mentiroso Compulsivo,liar.liar.jpg,Justin Cooper,Max Reede,,35mm,es
 1998-12-18,The Prince of Egypt,El Príncipe de Egitpo,the.prince.of.egypt.jpg,Bobby Motown,Hijo de Ramsés,,35mm,es
-1997-02-01,Recess,La Banda del Patio,recess.jpg,Courtland Mead,Gus Griswald,271967465%3Fsecret_token%3Ds-ig7Qh,Serie,es
+1997-02-01,Recess,La Banda del Patio,recess.jpg,Courtland Mead,Gus Griswald,,Serie,es
 1998-01-27,As good as it gets,Mejor... imposible,as.good.as.it.gets.jpg,Jesse James,Spencer Connelly,,35mm,es
 1998-10-02,The Horse Whisperer,El hombre que susurraba a los caballos,the.horse.whisperer.jpg,Ty Hillman,Joe Booker,,35mm,es
 1998-11-27,The Mask of Zorro,La Máscara del Zorro,the.mask.of.zorro.jpg,José María de Tavira,Joven Alejandro Murrieta,,35mm,es
@@ -39,7 +38,7 @@ date,title,translated,poster,actor,character,audio-url,type,language,video-url-u
 1999-12-17,The Iron Giant,El gigante de hierro,the.iron.giant.jpg,Eli Marienthal,Hogarth Hughes,,35mm,es
 1999-08-20,Star Wars: Episode I - The Phantom Menace,Star Wars: Episodio I - La amenaza fantasma,star.wars.episode.i.the.phantom.menace.jpg,Jake Lloyd, Anakin Skywalker,,35mm,es
 1999-12-17,Anna and the King,Ana y el Rey,anna.and.the.king.jpg,Keith Chin,Príncipe Chulalongkorn,,35mm,es
-2008-01-01,Death Note,Death Note,death.note.jpg,Noriko Hidaka,Near,267024888%3Fsecret_token%3Ds-heKhk,Serie,es
+2008-01-01,Death Note,Death Note,death.note.jpg,Noriko Hidaka,Near,,Serie,es
 2010-01-01,The Big C,Con C Mayúscula,the.big.c.jpg,Gabriel Basso,Adam Jamison,,Serie,es
 1999-01-29,Stepmom,Quédate a mi lado,stepmom.jpg,Liam Aiken,Ben Harrison,,35mm,es
 2000-05-26,I dreamed of África,Soñé con África,i.dreamed.of.africa.jpg,Liam Aiken,Emanuele Gallmann,,35mm,es
@@ -65,12 +64,5 @@ date,title,translated,poster,actor,character,audio-url,type,language,video-url-u
 2015-01-01,Rurôni Kenshin: Densetsu no saigo-hen,Kenshin el guerrero samurai 3 El fin de la leyenda,ruroni.kenshin.densetsu.no.saigo.hen.jpg,Ryûnosuke Kamiki,Sojiro Seta,,Video,es
 2003-07-11,Charlie's Angels: Full Throttle,Los Ángeles de Charlie: Al límite,charlies.angels.full.throttle.jpg,Shia LaBeouf,Max,,35mm,es
 1996-01-01,Darkwing Duck,El pato Darkwing,darkwing.duck.jpg,Katie Leigh,Honker Muddlefoot,,Serie,es
-2016-01-01,Degrassi: Next Class,Degrassi: Next Class,degrassi.next.class.jpg,Lyle Lettau,Tristan Milligan,,Serie,es
-2013-01-01,The Michael J. Fox Show,El show de Michael J. Fox,the.michael.j.fox.show.jpg,Conor Romero,Ian Henry,,Serie,es
-2014-05-15,Godzilla,Godzilla,godzilla.jpg,Victor Rasuk,Sargento Tre Morales,,35mm,es2013-01-01,The Michael J. Fox Show,El show de Michael J. Fox,the.michael.j.fox.show.jpg,Conor Romero,Ian Henry,,Serie,es
-2014-07-17,Dawn of the Planet of the Apes,El amanecer del planeta de los simios,dawn.of.the.planet.of.the.apes.jpg,Kodi Smit-McPhee,Alexander,,35mm,es
-2014-01-01,Faking it,Las Farsantes,faking.it.jpg,Michael J. Willett,Shane Harvey,,Serie,es
-2016-06-22,Gods of Egypt,Dioses de Egipto,gods.of.egypt.jpg,Brenton Thwaites,Bek,,35mm,es
-2016-06-22,Un homme à la hauteur,Un hombre de altura,un.homme.a.la.hauteur.jpg,César Domboy,Benji,,35mm,es
-2016-06-10,The Nice Guys,Dos buenos tipos,the.nice.guys.jpg,Jack Kilmer,Chet,,35mm,es
-2016-06-03,Ya Tayr El Tayer,Idol,ya.tayr.el.tayer.jpg,Tawfeek Barhom,Mohammed Assaf,,35mm,es
+2006-01-01,Degrassi: Next Class,Degrassi: Next Class,degrassi.next.class.jpg,Lyle Lettau,Tristan Milligan,,Serie,es
+2016-07-15,Stranger Things,Stranger Things,stranger.things.jpg,Charlie Heaton,Jonathan Byers,,Serie,es
