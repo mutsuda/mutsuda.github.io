@@ -36,10 +36,12 @@ permalink: /doblaje/
 
 
 {% assign movies = site.data.dubbings | sort: 'date' | reverse %}
+{% capture today %}{{'now' | date: '%F'}}{% endcapture %}
 <div class="container">
   <div class="section">
     <div class="row">
       {% for movie in movies %}
+      {% if movie.date <= today %} 
       <div class="col s12 m6 l3">
         <!-- Promo Content 1 goes here -->
         <div class="dubbings">
@@ -48,6 +50,7 @@ permalink: /doblaje/
           </div>
         </div>
       </div>
+      {% endif %}
       {% endfor %}
     </div>
  </div>
