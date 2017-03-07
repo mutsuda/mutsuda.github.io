@@ -12,4 +12,5 @@ date,brand,campaign,language,audio-url,video-url,download-url,type
 2016-01-01,IMC Toys,Miles & Merk,es,267024860%3Fsecret_token%3Ds-pXutm,https://www.youtube.com/embed/G3iKpdPbamc,https://api.soundcloud.com/tracks/267024860/download?secret_token=s-pXutm&client_id=a3e059563d7fd3372b49b37f00a00bcf,spot
 2016-01-01,Giochi Preziosi,Qixels,es,,https://www.youtube.com/embed/GRag-0ho5hU,https://api.soundcloud.com/tracks/268851991/download?secret_token=s-TqxTX&client_id=a3e059563d7fd3372b49b37f00a00bcf,spot
 2014-01-01,Dailies,Lentes de contacto,es,267024874%3Fsecret_token%3Ds-opAYI,,https://api.soundcloud.com/tracks/267024874/download?secret_token=s-opAYI&client_id=a3e059563d7fd3372b49b37f00a00bcf,cuña
-2016-12-14,AXE,Nuevos perfumes,es,,https://www.youtube.com/embed/6IuXJmOj0Fg,,spot
+2016-12-14,AXE,Nuevos perfumes,es,311143480%3Fsecret_token%3Ds-SyUuE,https://www.youtube.com/embed/6IuXJmOj0Fg,https://api.soundcloud.com/tracks/311143480/download?secret_token=s-SyUuE&client_id=a3e059563d7fd3372b49b37f00a00bcf,spot
+2017-03-07,SEAT,Nuevo SEAT León ST,es,311142965%3Fsecret_token%3Ds-btuWE,https://www.youtube.com/embed/DBcELNVA4iI,https://api.soundcloud.com/tracks/311142965/download?secret_token=s-btuWE&client_id=a3e059563d7fd3372b49b37f00a00bcf,spot
