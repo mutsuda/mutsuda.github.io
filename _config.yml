@@ -9,9 +9,9 @@
 title: Your awesome title
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
-  Web personal de Masumi Mutsuda, actor de doblaje, ingeniero informático y músico.
+  Masumi Mutsuda, actor de doblaje, locutor de publidad e ingeniero informático.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://mutsuda.com" # the base hostname & protocol for your site
+url: "https://mutsuda.com" # the base hostname & protocol for your site
 twitter_username: jekyllrb
 github_username:  jekyll
 
