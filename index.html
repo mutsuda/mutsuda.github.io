@@ -86,6 +86,35 @@ layout: default
   <div class="parallax"><img src="{{site.url}}/assets/images/background/background1.jpg" alt="Unsplashed background img 1"></div>
 </div>
 
+
+<div class="container">
+{% assign ads = site.data.advertising | sort: 'date' | reverse %}
+  <div class="section">
+    <div class="row">
+      <h3>Publicidad destacada</h3>
+      {% for ad in ads limit:4 %}
+      <div class="col s12 m6 l3">
+        {% include advert_card.html %}
+      </div>
+    {% endfor %}
+    </div>
+    <div class="row center">
+      <a href="{{ site.url }}/publicidad" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Ver más</a>
+    </div>
+  </div>
+</div>
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+        <h5 class="header col s12 light">Actor de doblaje, Ingeniero informático // creativo y angel investor en <b>itnig</b><h5>
+      </div>
+    </div>
+  </div>
+  <div class="parallax"><img src="{{site.url}}/assets/images/background/background2.jpg" alt="Unsplashed background img 1"></div>
+</div>
+
 {% assign movies = site.data.dubbings | sort: 'date' | reverse %}
 {% assign counter = 4 %}
 <div class="container">
@@ -111,30 +140,3 @@ layout: default
   </div>
 </div> 
 
-<div class="parallax-container valign-wrapper">
-  <div class="section no-pad-bot">
-    <div class="container">
-      <div class="row center">
-        <h5 class="header col s12 light">Actor de doblaje, Ingeniero informático // creativo y angel investor en <b>itnig</b><h5>
-      </div>
-    </div>
-  </div>
-  <div class="parallax"><img src="{{site.url}}/assets/images/background/background2.jpg" alt="Unsplashed background img 1"></div>
-</div>
-
-<div class="container">
-{% assign ads = site.data.advertising | sort: 'date' | reverse %}
-  <div class="section">
-    <div class="row">
-      <h3>Publicidad destacada</h3>
-      {% for ad in ads limit:4 %}
-      <div class="col s12 m6 l3">
-        {% include advert_card.html %}
-      </div>
-    {% endfor %}
-    </div>
-    <div class="row center">
-      <a href="{{ site.url }}/publicidad" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Ver más</a>
-    </div>
-  </div>
-</div>
