@@ -2,6 +2,14 @@ require 'google/apis/calendar_v3'
 require 'googleauth'
 require 'googleauth/stores/file_token_store'
 require 'fileutils'
+require 'json'
+require 'airtable'
+require 'active_support/all'
+
+TAKE_35 = 5.63
+TAKE_VIDEO = 4.06
+CG_35 = 50.64
+CG_VIDEO = 36.99
 
 OOB_URI = 'urn:ietf:wg:oauth:2.0:oob'.freeze
 APPLICATION_NAME = 'Google Calendar API Ruby Quickstart'.freeze
@@ -36,21 +44,109 @@ def authorize
   credentials
 end
 
+
+def getStudio(location)
+  if location
+    return "Deluxe 103" if location.match(/Deluxe/)
+    return "Soundstudio" if location.match(/Soundstudio/)
+    return "VSI Sonygraf" if location.match(/Sonygraf/)
+    return "Takemaker" if location.match(/Takemaker/)
+    return "Dubbing" if location.match(/Dubbing/)
+    return "SDI Media" if location.match(/SDI/)
+    return "SIK Estudio" if location.match(/SIK/)
+  end
+  return "Desconocido"
+end
+
+def getDistribution(summary)
+  if (summary)
+    distr = summary.scan(/(?<=distr.).*$/)
+    if (distr.size != 0)
+      return distr[0].strip
+    end
+  end
+  return "video"
+end
+
+def getPrice(cg, takes, distr)
+  case distr
+  when "35mm"
+    return (cg*CG_35+takes*TAKE_35).round(2)
+  when "video"
+    return (cg*CG_VIDEO+takes*TAKE_VIDEO).round(2)
+  end
+  return 0
+end
+
+def getCgs(summary)
+  if (summary)
+    cgs = summary.scan(/[0-9]+(?=cg)/)
+    if (cgs.size !=0)
+      return cgs[0]
+    else
+      matches = summary.scan(/[0-9]+(?=tk)/)
+      return matches.size
+    end
+  end
+  return "0"
+end
+
+def getTakes(summary)
+  if (summary)
+    matches = summary.scan(/[0-9]+(?=tk)/)
+    return matches.map(&:to_i).inject(0, :+)
+  end
+  return "0"
+end
+
+def getDirector(summary)
+  if (summary)
+    dir = summary.scan(/(?<=dir.).*$/)
+    if (dir.size != 0)
+      return dir[0].strip
+    end
+  end
+  return "Ninguno"
+end
+
+def writeAirtable(event)
+  # Pass in the app key and table name
+
+  @convos = @client.table("appvnKEOQ9LKwblbW", "convos")
+  #@record = Airtable::Record.new(:id => event.id, :date => event.start.date, :name => event.summary, :estudio => "test", :distribucion => "test1", :CG => "test2", :TK => "test3", :Director => "test4", :Price => "test5")
+  @record = Airtable::Record.new(:id => "ho", :date => "event.start.date", :name => "event.summary", :estudio => "test", :distribucion => "test1", :CG => "test2", :TK => "test3", :Director => "test4", :Price => "test5")
+  
+  @convos.create(@record)
+
+
+end
+
+# Pass in api key to client
+@client = Airtable::Client.new("keyxPWWnfEUccGcDt")
+
 # Initialize the API
 service = Google::Apis::CalendarV3::CalendarService.new
 service.client_options.application_name = APPLICATION_NAME
 service.authorization = authorize
 
 # Fetch the next 10 events for the user
-calendar_id = 'primary'
+calendar_id = 'no68u7uo0lbmqgs1efsdckng6o@group.calendar.google.com'
 response = service.list_events(calendar_id,
-                               max_results: 10,
                                single_events: true,
                                order_by: 'startTime',
-                               time_min: Time.now.iso8601)
-puts 'Upcoming events:'
-puts 'No upcoming events found' if response.items.empty?
-response.items.each do |event|
-  start = event.start.date || event.start.date_time
-  puts "- #{event.summary} (#{start})"
+                               time_min: '2019-01-01T00:00:00+00:00')
+
+File.open("_data/calendar.csv", "w") do |f|
+  f.write("id,Date,Nombre,Estudio,Distribucion,CG,Takes,Director,Precio\n")
+  response.items.each do |event|
+    start = event.start.date || event.start.date_time
+    takes = getTakes(event.description)
+    cg = getCgs(event.description)
+    distr = getDistribution(event.description)
+    price = getPrice(cg.to_f,takes.to_f,distr).to_s
+    f.write("#{event.id},#{start},#{event.summary},#{getStudio(event.location)},#{distr},#{cg},#{takes},#{getDirector(event.description)},#{price}\n")
+  end
 end
+
+
+

@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<meta name="robots" content="noindex,nofollow" />
+
+{% assign convos = site.data.calendar | sort: 'date' %}
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Nombre</th>
+      <th>Estudio</th>
+      <th>Distribución</th>
+      <th>CG</th>
+      <th>Takes</th>
+      <th>Director</th>
+      <th>Precio</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  {% for convo in convos %}
+  <tr>
+    <td>{{ convo.Date }}</td>
+    <td>{{ convo.Nombre }}</td>
+    <td>{{ convo.Estudio }}</td>
+    <td>{{ convo.Distribucion }}</td>
+    <td>{{ convo.CG }}</td>
+    <td>{{ convo.Takes }}</td>
+    <td>{{ convo.Director }}</td>
+    <td>{{ convo.Precio }}€</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
