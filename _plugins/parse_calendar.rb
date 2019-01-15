@@ -68,14 +68,25 @@ def getDistribution(summary)
   return "video"
 end
 
-def getPrice(cg, takes, distr)
-  case distr
-  when "35mm"
-    return (cg*CG_35+takes*TAKE_35).round(2)
-  when "video"
-    return (cg*CG_VIDEO+takes*TAKE_VIDEO).round(2)
+def getPrice(cg, takes, distr, description)
+  price = 0
+  found = false
+  if (description) 
+    matches = description.scan(/[0-9]+(?=€)/)
+    if (matches[0])
+      found = true
+      price = matches[0]
+    end
   end
-  return 0
+  if (!found)
+    case distr
+    when "35mm"
+      return (cg*CG_35+takes*TAKE_35).round(2)
+    when "video"
+      return (cg*CG_VIDEO+takes*TAKE_VIDEO).round(2)
+    end
+  end
+  return price.to_f.round(2)
 end
 
 def getCgs(summary)
@@ -109,20 +120,6 @@ def getDirector(summary)
   return "Ninguno"
 end
 
-def writeAirtable(event)
-  # Pass in the app key and table name
-
-  @convos = @client.table("appvnKEOQ9LKwblbW", "convos")
-  #@record = Airtable::Record.new(:id => event.id, :date => event.start.date, :name => event.summary, :estudio => "test", :distribucion => "test1", :CG => "test2", :TK => "test3", :Director => "test4", :Price => "test5")
-  @record = Airtable::Record.new(:id => "ho", :date => "event.start.date", :name => "event.summary", :estudio => "test", :distribucion => "test1", :CG => "test2", :TK => "test3", :Director => "test4", :Price => "test5")
-  
-  @convos.create(@record)
-
-
-end
-
-# Pass in api key to client
-@client = Airtable::Client.new("keyxPWWnfEUccGcDt")
 
 # Initialize the API
 service = Google::Apis::CalendarV3::CalendarService.new
@@ -143,7 +140,7 @@ File.open("_data/calendar.csv", "w") do |f|
     takes = getTakes(event.description)
     cg = getCgs(event.description)
     distr = getDistribution(event.description)
-    price = getPrice(cg.to_f,takes.to_f,distr).to_s
+    price = getPrice(cg.to_f,takes.to_f,distr, event.description).to_s
     f.write("#{event.id},#{start},#{event.summary},#{getStudio(event.location)},#{distr},#{cg},#{takes},#{getDirector(event.description)},#{price}\n")
   end
 end
