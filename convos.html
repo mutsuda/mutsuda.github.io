@@ -5,6 +5,11 @@ layout: default
 
 {% assign convos = site.data.calendar | sort: 'date' %}
 
+<button id="all" type="All">All</button>
+<button id="thisMonth" type="last30">This Month</button>
+<button id="last30" type="last30">Last 30 days</button>
+<button id="last7" type="last30">Last 7 days</button>
+<label id="total">total</div>
 <table class="striped responsive-table centered">
   <thead>
     <tr>
@@ -19,7 +24,7 @@ layout: default
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class = "fbody">
   {% for convo in convos %}
   <tr>
     <td>{{ convo.Date }}</td>
