@@ -54,6 +54,7 @@ def getStudio(location)
     return "Dubbing" if location.match(/Dubbing/)
     return "SDI Media" if location.match(/SDI/)
     return "SIK Estudio" if location.match(/SIK/)
+    return "Deluxe 103" if location.match(/Polford/)
   end
   return "Desconocido"
 end
@@ -131,7 +132,7 @@ calendar_id = 'no68u7uo0lbmqgs1efsdckng6o@group.calendar.google.com'
 response = service.list_events(calendar_id,
                                single_events: true,
                                order_by: 'startTime',
-                               time_min: '2019-01-01T00:00:00+00:00')
+                               time_min: '2019-05-01T00:00:00+00:00')
 
 File.open("_data/calendar.csv", "w") do |f|
   f.write("id,Date,Nombre,Estudio,Distribucion,CG,Takes,Director,Precio\n")
