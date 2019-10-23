@@ -104,6 +104,8 @@ layout: default
   </div>
 </div>
 
+{% comment %}
+
 <div class="parallax-container valign-wrapper">
   <div class="section no-pad-bot">
     <div class="container">
@@ -114,6 +116,7 @@ layout: default
   </div>
   <div class="parallax"><img src="{{site.url}}/assets/images/background/background2.jpg" alt="Unsplashed background img 1"></div>
 </div>
+
 
 {% assign movies = site.data.dubbings | sort: 'date' | reverse %}
 {% assign counter = 4 %}
@@ -139,4 +142,5 @@ layout: default
     </div>
   </div>
 </div> 
+{% endcomment %}
 
