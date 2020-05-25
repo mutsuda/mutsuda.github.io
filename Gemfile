@@ -1,6 +1,15 @@
 source 'https://rubygems.org'
 
-gem 'github-pages'
-gem 'kramdown'
-gem 'airtable'
-gem 'google-api-client','~> 0.8'
+# Source
+source 'https://rubygems.org'
+
+# Jekyll
+gem 'jekyll'
+
+gem 'http'
+
+# To be removed once it's more official
+gem 'airtable', github: "Airtable/airtable-ruby"
+
+gem 'jekyll-assets'
+gem 'nokogiri'
