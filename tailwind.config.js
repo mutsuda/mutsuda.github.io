@@ -21,7 +21,6 @@ module.exports = {
 
     extend: {
       colors: {
-        'itnig-yellow': '#FFF45F',
         'itnig-gray': '#F5F5F5',
         'coworker-bg': '#ebebeb',
         'coworker-star': '#00d191',
