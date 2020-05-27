@@ -9,44 +9,106 @@
     <meta name="author" content="SitePoint">
 
     <link rel="stylesheet" href="css/tailwind.css">
-
   </head>
 
 
   <body>
     <header>
       <nav class="bg-gray-900 shadow py-2">
+        <div class="px-10 lg:px-48 xxl:px-64 sm:flex sm:flex-wrap sm:bg-gray-900 sm:justify-between sm:items-center">
+          <div class="">
+            <div class="flex flex-wrap justify-between items-center">
+              <!-- Left -->
+              <div class="text-white">
+                <a class="text-2xl font-semibold" href="/">MMZ</a>
+              </div>
 
-        <div class="sm:hidden">
-          <button type="button" class="text-white" id="nav-toggle">
-            <svg class="h-6 w-6 fill-current text-{{include.primary-color}}" viewBox="0 0 24 24">
-              <path id="hamburger" fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
-              <path id="cross" fill-rule="evenodd" class="hidden" d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"/>
-            </svg>
-          </button>
-         </div>
+              <!-- Hamburguer -->
+              <div class="sm:hidden">
+                <button type="button" class="text-white" id="nav-toggle">
+                  <svg class="h-6 w-6 fill-current text-{{include.primary-color}}" viewBox="0 0 24 24">
+                    <path id="hamburger" fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
+                    <path id="cross" fill-rule="evenodd" class="hidden" d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"/>
+                  </svg>
+                </button>
+              </div>
 
-        <div class="px-10 lg:px-48 xxl:px-64 flex flex-wrap justify-between items-center">
-          <!-- Left -->
-          <div class="text-white">
-            <a class="text-2xl font-semibold" href="/">MMZ</a>
+            </div>
           </div>
-
-          <!-- Right -->
-          <div class="text-white">
-            <a class="px-2" href="">Doblaje</a>
-            <a class="px-2" href="">Publicidad</a>
-            <a class="px-2" href="">Música</a>
-            <a class="px-2" href="">Geek</a>
-            <a class="px-2" href="">About</a>
+          
+          <div id="nav-menu" class="hidden sm:block sm:w-auto sm:flex sm:flex-wrap sm:bg-gray-900 text-white">
+            <a class="block text-center py-2 sm:px-4" href="">Doblaje</a>
+            <a class="block text-center py-2 sm:px-4" href="">Publicidad</a>
+            <a class="block text-center py-2 sm:px-4" href="">About</a>
           </div>
         </div>
       </nav>
 
+      <!-- Header stuff, muestra de voz etc-->
+      <div class="py-12">
+        <h1 class="text-3xl sm:text-5xl font-semibold text-center">Masumi Mutsuda</h1>
+        <h2 class="sm:text-xl text-center">Actor de doblaje y locutor</h2>
+      </div>
+
     </header>
 
+    <!-- Content -->
+    <div class="px-10 lg:px-48 xxl:px-64 bg-gray-100 py-8">
+      
+
+      <!-- Section 1 -->
+      <h2 class="font-semibold text-xl pb-4">Estrenos de cine:</h2>
+      <div class="flex flex-wrap">
+        <div class="bg-cover bg-center  h-64 w-48 rounded overflow-hidden shadow-lg mx-2" style="background-image: url('/assets/images/movies/adventure.time.jpg'">
+          <div class="h-64 w-48 pt-20 bg-black opacity-0 text-white hover:opacity-75">
+            <h2 class="text-xl text-center">Ezra Miller</h2>
+            <h3 class="text-center">The Flash / Barry Allen</h3>
+          </div>
+
+        </div>
+
+        <div class="bg-cover bg-center h-64 w-48 rounded overflow-hidden shadow-lg mx-2 hover:opacity-100" style="background-image: url('/assets/images/movies/atomic.blonde.jpg'">
+        </div>
+
+         <div class="bg-cover bg-center  h-64 w-48 rounded overflow-hidden shadow-lg mx-2 hover:opacity-100" style="background-image: url('/assets/images/movies/batman.v.superman.jpg'">
+
+        </div>
+
+         <div class="bg-cover bg-center  h-64 w-48 rounded overflow-hidden shadow-lg mx-2 hover:opacity-100" style="background-image: url('/assets/images/movies/blue.jasmine.jpg'">
+          
+        </div>
+
+        <a href="#" class="hover:bg-gray-400 bg-gray-300 h-64 w-12 rounded overflow-hidden shadow-lg mx-2 hover:opacity-100">
+          <div class="pt-24 text-center">+</div>
+        </a>
+      </div>
 
 
+      <!-- Section 2 -->
+      <h2 class="font-semibold text-xl pb-4 pt-8">Streaming y TV:</h2>
+      <div class="flex flex-wrap">
+        <div class="h-64 w-48 rounded overflow-hidden shadow-lg mx-2">
+          <img class="object-fit w-full" src="/assets/images/movies/adventure.time.jpg" alt="Sunset in the mountains">
+        </div>
+
+        <div class="h-64 w-48 rounded overflow-hidden shadow-lg mx-2 hover:opacity-100">
+          <img class="w-full" src="/assets/images/movies/atomic.blonde.jpg" alt="Sunset in the mountains">
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+    <footer class="bg-gray-900 py-20">
+      <div class="px-10 lg:px-48 xxl:px-64 text-white">
+        Footer content
+      </div>
+
+    </footer>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="/js/init.js"></script>
   </body>
 
 
