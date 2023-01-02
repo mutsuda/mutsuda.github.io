@@ -1,32 +1,38 @@
 <header>
+      <nav class="bg-gray-900 shadow py-2">
+        <div class="px-10 lg:px-48 xxl:px-64 sm:flex sm:flex-wrap sm:bg-gray-900 sm:justify-between sm:items-center">
+          <div class="">
+            <div class="flex flex-wrap justify-between items-center">
+              <!-- Left -->
+              <div class="text-white">
+                <a class="text-2xl font-semibold" href="/">MMZ</a>
+              </div>
 
-  <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="{{ site.url }}" class="brand-logo">MM</a>
-      
-      <ul class="right hide-on-med-and-down">
-      {% assign pages = site.pages | sort:"order" %}
-      {% for my_page in pages %}
-        {% if my_page.title %}
-            <li><a href={{ my_page.url | prepend: site.baseurl }}>{{ my_page.title }}</a></li>
-        {% endif %}
-      {% endfor %}
-        <li><a href="http://blog.mutsuda.com" target="_blank">Blog</a></li>
-      </ul>
-      
-      <ul id="nav-mobile" class="side-nav">
-      {% for my_page in pages %}
-        {% if my_page.title %}
-          <li><a href={{ my_page.url | prepend: site.baseurl }}>{{ my_page.title }}</a></li>
-        {% endif %}
-      {% endfor %}
-        <li><a href="http://blog.mutsuda.com">Blog</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
+              <!-- Hamburguer -->
+              <div class="sm:hidden">
+                <button type="button" class="text-white" id="nav-toggle">
+                  <svg class="h-6 w-6 fill-current text-{{include.primary-color}}" viewBox="0 0 24 24">
+                    <path id="hamburger" fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
+                    <path id="cross" fill-rule="evenodd" class="hidden" d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"/>
+                  </svg>
+                </button>
+              </div>
 
-</header>
+            </div>
+          </div>
+          
+          <div id="nav-menu" class="hidden sm:block sm:w-auto sm:flex sm:flex-wrap sm:bg-gray-900 text-white">
+            <a class="block text-center py-2 sm:px-4" href="">Doblaje</a>
+            <a class="block text-center py-2 sm:px-4" href="">Publicidad</a>
+            <a class="block text-center py-2 sm:px-4" href="">About</a>
+          </div>
+        </div>
+      </nav>
 
+      <!-- Header stuff, muestra de voz etc-->
+      <div class="py-12">
+        <h1 class="text-3xl sm:text-5xl font-semibold text-center">Masumi Mutsuda</h1>
+        <h2 class="sm:text-xl text-center">Actor de doblaje y locutor</h2>
+      </div>
 
-
+    </header>
