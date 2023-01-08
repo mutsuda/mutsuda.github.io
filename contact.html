@@ -1,49 +1,26 @@
 ---
 layout: default
-order: 3
 title: Contacta
 permalink: /contacta/
 ---
-<div id="index-banner" class="parallax-container">
-  <div class="section no-pad-bot">
-    <div class="container">
-      <h1 class="header center">Contacta</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">También puedes contactar conmigo a través de <a href="http://twitter.com/mutsuda" target="_blank">Twitter</a> o <a href="http://facebook.com/masumi">Facebook</a></h5>
-      </div>
-    </div>
+<section class="bg-white dark:bg-gray-900">
+  <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+      <h2 class="mb-4 text-4xl tracking-tight font-bold text-center text-gray-900 dark:text-white">Contacta</h2>
+      <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Ponte en contacto conmigo para cualquier proyecto, entrevista o duda puedas tener.</p>
+      <form action="http://formspree.io/mutsuda@gmail.com" method="POST" class="space-y-8">
+          <div>
+              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tu Email</label>
+              <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="nombre@email.com" required>
+          </div>
+          <div>
+              <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tema</label>
+              <input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Cómo te puedo ayudar?" required>
+          </div>
+          <div class="sm:col-span-2">
+              <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tu mensaje</label>
+              <textarea id="message" rows="6" class="block p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Escribe tu mensaje..."></textarea>
+          </div>
+          <button type="submit" class="py-3 px-8 font-bold text-center text-white rounded-lg bg-blue-500 sm:w-fit hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300">Enviar</button>
+      </form>
   </div>
-  <div class="parallax"><img src="{{site.url}}/assets/images/background/background1.jpg" alt="Unsplashed background img 1"></div>
-</div>
-
-
-<div class="container">
-  <div class="row">
-    <form action="http://formspree.io/mutsuda@gmail.com" method="POST" class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="first_name" name="name" type="text" class="validate">
-          <label for="first_name">Nombre</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="last_name" name="last_name" type="text" class="validate">
-          <label for="last_name">Apellidos</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" name="_replyto" class="validate">
-          <label for="email">Email</label>
-        </div>
-      </div>
-      <div class="row">
-      <div class="input-field col s12">
-        <textarea id="textarea1" name="body" class="materialize-textarea"></textarea>
-        <label for="textarea1">Mensaje</label>
-      </div>
-      <button class="btn waves-effect waves-light" type="submit" value="Send" name="action">Enviar
-        <i class="material-icons right">send</i>
-      </button>
-    </form>
-  </div> 
-</div> 
+</section>
