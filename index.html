@@ -11,7 +11,7 @@ layout: default
       {% capture today %}{{'now' | date: '%F'}}{% endcapture %}
       {% assign movies = site.data.dubbings | where: "type","35mm" | sort: 'date' | reverse %}
       {% assign counter = 4 %}
-      <div class="flex flex-wrap justify-between">
+      <div class="flex flex-wrap justify-evenly">
         {% for movie in movies %}
         {% if movie.date <= today and counter !=0 %}
           {% include movie_card.html %}
@@ -32,7 +32,7 @@ layout: default
       {% capture today %}{{'now' | date: '%F'}}{% endcapture %}
       {% assign movies = site.data.dubbings | where: "type","Serie" | sort: 'date' | reverse %}
       {% assign counter = 4 %}
-      <div class="flex flex-wrap justify-between">
+      <div class="flex flex-wrap justify-evenly">
         {% for movie in movies %}
         {% if movie.date <= today and counter !=0 %}
           {% include movie_card.html %}
