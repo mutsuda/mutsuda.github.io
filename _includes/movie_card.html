@@ -1,7 +1,7 @@
-<div data-type="{{ movie.type }}" data-year="{{movie.date | date: "%Y"}}" class="poster bg-cover bg-center  h-80 w-48 rounded overflow-hidden shadow-lg mx-2 mt-8" style="background-image: url('{{  movie.poster_url }}'">
-  <div class="h-80 w-48 pt-20 bg-black opacity-0 text-white hover:opacity-75">
+<div data-type="{{ movie.type }}" data-year="{{movie.date | date: "%Y"}}" class="poster bg-cover bg-center h-64 w-40 rounded overflow-hidden shadow-lg mt-8" style="background-image: url('{{  movie.poster_url }}'">
+  <div class="h-64 w-40 pt-4 bg-black opacity-0 text-white hover:opacity-75">
     <h2 class="text-center">{{ movie.actor }}</h2>
     <h3 class="text-center text-xs">{{ movie.character}}</h3>
-    <h1 class="pt-24 px-4 text-center text-xl">{{ movie.translated }} </h1>
+    <h1 class="pt-24 px-4 text-center text-lg">{{ movie.translated }} </h1>
   </div>
 </div>
