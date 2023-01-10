@@ -3,77 +3,49 @@ layout: default
 permalink: /doblaje/
 title: Doblaje
 ---
-
-
-
-<!-- {% assign movies = site.data.dubbings | sort: 'date' | reverse %}
-{% capture today %}{{'now' | date: '%F'}}{% endcapture %}
-<div class="container">
-  <div class="section">
-    <div class="row">
-      {% for movie in movies %}
-      {% if movie.date <= today %} 
-      <div class="col s12 m6 l3">
-        
-        <div class="dubbings">
-          <div class="dubbing" data-category="{{ movie.type }} {{movie.date | date: "%Y"}}">
-            {% include movie_card.html %}      
-          </div>
-        </div>
-      </div>
-      {% endif %}
-      {% endfor %}
-    </div>
- </div>
-</div>
--->
-
 {% capture today %}{{'now' | date: '%F'}}{% endcapture %}
 
 <h2 id="reels" class="font-semibold text-2xl pb-4 pt-4">Reels doblaje</h2>
 <span>Cada año desde 2016 intento hacer un resumen del año en doblaje. A continuación encontraréis los últimos resúmenes que incluyen películas de cine y plataformas, así como series de plataformas (Netflix, HBO Max, Disney+, Prime Video) y televisión.</span>
 
 <div class="flex flex-wrap justify-between">
-        <div class="md:w-1/3 sm:w-1/2 px-2 pt-8">
-          <video id="player1" preload="auto">
-            <source src="/assets/video/doblaje/2021.mp4#t=0.001" type="video/mp4">
-          </video>
-          <h3 class=text-center>2021</h3>
-        </div>
-        <div class="md:w-1/3 sm:w-1/2 px-2 pt-8">
-          <video  id="player2"  preload="auto">
-            <source src="/assets/video/doblaje/2020.mp4#t=0.001" type="video/mp4">
-          </video>
-          <h3 class=text-center>2020</h3>
-        </div>
-        <div class="md:w-1/3 sm:w-1/2 px-2 pt-8">
-          <video id="player3" preload="auto">
-            <source src="/assets/video/doblaje/2019.mp4#t=0.001" type="video/mp4">
-          </video>
-          <h3 class=text-center>2019</h3>
-        </div>
-        <div class="md:w-1/3 sm:w-1/2 px-2 pt-8">
-          <video id="player3"  preload="auto">
-            <source src="/assets/video/doblaje/2018.mp4#t=0.001" type="video/mp4">
-          </video>
-          <h3 class=text-center>2018</h3>
-        </div>
-        <div class="md:w-1/3 sm:w-1/2 px-2 pt-8">
-          <video class="h-128" id="player3" preload="auto">
-            <source src="/assets/video/doblaje/2017.mp4#t=0.001" type="video/mp4">
-          </video>
-          <h3 class=text-center>2017</h3>
-        </div>
-        <div class="md:w-1/3 sm:w-1/2 px-2 pt-8">
-          <video id="player3"  preload="auto">
-            <source src="/assets/video/doblaje/2016.mp4#t=0.001" type="video/mp4">
-          </video>
-          <h3 class=text-center>2016</h3>
-        </div>
-      </div>
-
-
-
+  <div class="md:w-1/3 sm:w-1/2 px-2 pt-8">
+    <video id="player1" preload="auto">
+      <source src="/assets/video/doblaje/2021.mp4#t=0.001" type="video/mp4">
+    </video>
+    <h3 class=text-center>2021</h3>
+  </div>
+  <div class="md:w-1/3 sm:w-1/2 px-2 pt-8">
+    <video  id="player2"  preload="auto">
+      <source src="/assets/video/doblaje/2020.mp4#t=0.001" type="video/mp4">
+    </video>
+    <h3 class=text-center>2020</h3>
+  </div>
+  <div class="md:w-1/3 sm:w-1/2 px-2 pt-8">
+    <video id="player3" preload="auto">
+      <source src="/assets/video/doblaje/2019.mp4#t=0.001" type="video/mp4">
+    </video>
+    <h3 class=text-center>2019</h3>
+  </div>
+  <div class="md:w-1/3 sm:w-1/2 px-2 pt-8">
+    <video id="player3"  preload="auto">
+      <source src="/assets/video/doblaje/2018.mp4#t=0.001" type="video/mp4">
+    </video>
+    <h3 class=text-center>2018</h3>
+  </div>
+  <div class="md:w-1/3 sm:w-1/2 px-2 pt-8">
+    <video class="h-128" id="player3" preload="auto">
+      <source src="/assets/video/doblaje/2017.mp4#t=0.001" type="video/mp4">
+    </video>
+    <h3 class=text-center>2017</h3>
+  </div>
+  <div class="md:w-1/3 sm:w-1/2 px-2 pt-8">
+    <video id="player3"  preload="auto">
+      <source src="/assets/video/doblaje/2016.mp4#t=0.001" type="video/mp4">
+    </video>
+    <h3 class=text-center>2016</h3>
+  </div>
+</div>
 
 
 
@@ -86,11 +58,11 @@ title: Doblaje
   <label class=""><input class="mr-1" checked type="checkbox" value="35mm">Cine</label>
   <label class="ml-4"><input class="mr-1" checked type="checkbox" value="Video" value="Serie" >Plataformas y TV</label>
 </div>
-    {% assign movies = site.data.dubbings | sort: 'date' | reverse %}
-    <div class="flex flex-wrap justify-evenly">
-      {% for movie in movies %}
-      {% if movie.date <= today and counter !=0 %}
-        {% include movie_card.html %}
-      {% endif %}
-      {% endfor %}
-    </div>
+{% assign movies = site.data.dubbings | sort: 'date' | reverse %}
+<div class="flex flex-wrap justify-evenly">
+  {% for movie in movies %}
+  {% if movie.date <= today and counter !=0 %}
+    {% include movie_card.html %}
+  {% endif %}
+  {% endfor %}
+</div>

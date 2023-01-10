@@ -1,11 +1,27 @@
 <head>
+      {% if page.title == "Home" %} 
       <meta charset="utf-8">
+      <title>Home - Masumi Mutsuda</title>
+      <meta name="description" content="Bienvenido a mi página web. Aquí podrás encontrar información sobre mis trabajos de doblaje y publicidad, así como ver ejemplos de mis proyectos más recientes.">
+      <meta name="keywords" content="doblaje, publicidad, locución, doblaje de películas, doblaje de series, promociones de productos">
+      {% endif %}
 
-      <title>Masumi Mutsuda</title>
-      <meta name="description" content="Actor de doblaje y locutor">
+
+      {% if page.title == "Doblajes" %}
+      <title>Doblajes - Masumi Mutsuda</title>
+      <meta name="description" content="En esta sección podrás encontrar información sobre mis trabajos de doblaje, incluyendo ejemplos de películas y series en las que he trabajado y mi proceso de trabajo.">
+      <meta name="keywords" content="doblaje, doblaje de películas, doblaje de series, voces, actores de doblaje">
+      {% endif %}
+
+
+      {% if page.title == "Publicidad" %}
+      <title>Publicidad - Tu sitio web</title>
+      <meta name="description" content="En esta sección podrás encontrar información sobre mis trabajos de locución para publicidad, incluyendo ejemplos de campañas publicitarias en las que he trabajado y mi enfoque en la locución de mensajes publicitarios efectivos.">
+      <meta name="keywords" content="publicidad, locución, mensajes publicitarios, anuncios de televisión, radio, internet">
+      {% endif %}
+
       <meta name="author" content="SitePoint">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
       <link rel="stylesheet" href="{{ site.baseurl}}/css/tailwind.css">
 
 </head>
