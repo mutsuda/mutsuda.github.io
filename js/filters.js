@@ -41,7 +41,7 @@ function filterPosters() {
   });
 
   // Ocultar los carteles de películas que no estén seleccionados
-  if (selectedTypes.length > 0) {
+  if (selectedTypes.length >= 0) {
     posters.forEach(function(poster) {
       var posterType = poster.getAttribute('data-type');
       if (!selectedTypes.includes(posterType)) {
