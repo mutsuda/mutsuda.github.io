@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/Airtable/airtable-ruby.git
+  remote: https://github.com/Airtable/airtable-ruby.git
   revision: 041a8baf8ae59279630912d6ff329faa64398cb2
   specs:
     airtable (0.1.1)
@@ -96,7 +96,7 @@ GEM
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (3.1.1)
-    rack (2.2.2)
+    rack (2.2.6.2)
     rake (13.0.1)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
