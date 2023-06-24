@@ -40,7 +40,7 @@ function generateLabel()
     var ratio = parseFloat(networth) / parseFloat(millionaire[1].slice(0,-1))
     var price = ratio * parseFloat(product[1].slice(0,-1))
     var times = Math.round(parseFloat(product[1].slice(0,-1)) / price);
-    result.innerHTML = "Para " + millionaire[0] + " gastarse " + parseFloat(product[1].slice(0,-1))+"€" + " en un " + product[0] + " es como para ti gastarte " + customround(price)+"€. Dicho de otra manera, para despeinar a " + millionaire[0] + " igual que a ti, se tendría que comprar " + times + " " + product[0]+"s"
+    result.innerHTML = "Para " + millionaire[0] + " gastarse " + parseFloat(product[1].slice(0,-1))+"€" + " en un " + product[0] + " es como para ti gastarte " + customround(price)+"€. Dicho de otra manera, para despeinar a " + millionaire[0] + " igual que a ti, se tendría que comprar " + times + " " + product[0]+"."
   }
 }
 
