@@ -1,6 +1,9 @@
 // script.js
 
 document.addEventListener("DOMContentLoaded", function () {
+
+
+
     // Define the initial proportions for the ingredients along with their units
     const ingredientsData = {
         baos: { quantity: 12, unit: 'piezas' },
@@ -56,17 +59,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    // Handler for input change events
+     // Handler for input change events
     function handleInputChange(event) {
         const currentIngredient = event.target.name;
-        const currentValue = parseFloat(event.target.value) || 0;
+        const currentValue = event.target.value === "" ? "" : parseFloat(event.target.value) || 0;
+
+        // If the value is empty, set all fields to empty and exit the function
+        if (currentValue === "") {
+            setAllValuesToEmpty();
+            return;
+        }
 
         // Determine the ratio based on the current ingredient being edited
         const currentRatio = ingredientsData[currentIngredient].quantity / currentValue;
 
         // Check if the field is valid to avoid division by zero or negative values
         if (!isFinite(currentRatio) || currentRatio <= 0) {
-            alert('Please enter a valid number.');
             event.target.value = ingredientsData[currentIngredient].quantity;
             return;
         }
@@ -80,6 +88,12 @@ document.addEventListener("DOMContentLoaded", function () {
             if (ingredient !== currentIngredient) {
                 document.querySelector(`input[name=${ingredient}]`).value = adjustedValue.toFixed(2); // toFixed for rounding to 2 decimal places
             }
+        }
+    }
+
+    function setAllValuesToEmpty() {
+        for (const ingredient in ingredientsData) {
+            document.querySelector(`input[name=${ingredient}]`).value = "";
         }
     }
 
