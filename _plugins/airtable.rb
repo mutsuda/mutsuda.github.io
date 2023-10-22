@@ -14,6 +14,9 @@ require 'active_support/all'
 @ads = @client.table("appsmvaOoTv8P3ypJ", "ads")
 @a_records = @ads.all(:sort => ["date", :asc])
 
+@audiobooks = @client.table("appsmvaOoTv8P3ypJ", "audiobooks")
+@a_records = @audiobooks.all(:sort => ["date", :asc])
+
 # Change the filename here below but make sure it's in the _data folder.
 File.open("_data/dubbings.json", "w") do |f|
     data = @d_records.map { |record| record.attributes }
@@ -22,6 +25,12 @@ end
 
 # Change the filename here below but make sure it's in the _data folder.
 File.open("_data/ads.json", "w") do |f|
+    data = @a_records.map { |record| record.attributes }
+    f.write(data.to_json)
+end
+
+# Change the filename here below but make sure it's in the _data folder.
+File.open("_data/audiobooks.json", "w") do |f|
     data = @a_records.map { |record| record.attributes }
     f.write(data.to_json)
 end

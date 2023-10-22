@@ -1,7 +1,9 @@
 <div class="poster bg-cover bg-center h-64 w-40 rounded overflow-hidden shadow-lg mt-8" style="background-image: url('{{  audiobook.cover_url }}'">
-  <div class="h-64 w-40 pt-4 bg-black opacity-0 text-white hover:opacity-75">
-    <h2 class="text-center">{{ audiobook.author }}</h2>
-    <h3 class="text-center text-xs">{{ audiobook.language }}</h3>
-    <h1 class="pt-24 px-4 text-center text-lg">{{ audiobook.title }} </h1>
-  </div>
+  <a href="{{ audiobook.link }}">
+    <div class="h-64 w-40 pt-4 bg-black opacity-0 text-white hover:opacity-75">
+      <h2 class="text-center">{{ audiobook.author }}</h2>
+      <h3 class="text-center text-xs">{{ audiobook.language }}</h3>
+      <h1 class="pt-24 px-4 text-center text-lg">{{ audiobook.title }} </h1>
+    </div>
+  </a>
 </div>
