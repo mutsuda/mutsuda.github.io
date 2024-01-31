@@ -4,7 +4,33 @@ title: Home
 ---
     <!-- Content -->
     
-      
+       <!-- Publi -->
+  <h2 class="font-semibold text-2xl pb-4 pt-4">Publicidad</h2>
+  <span>Los últimos trabajos en publicidad para televisión, cine, online, etc.</span>
+
+  <div class="pt-6 pb-6 flex flex-wrap items-center justify-between">
+    <div class="w-full flex flex-wrap">
+    <div class="md:w-1/3 sm:w-1/2 px-2 pt-8 sm:pt-0">
+      <video id="player1" preload="auto">
+        <source src="/assets/video/locucion/Backmarket.mp4#t=0.001" type="video/mp4">
+      </video>
+    </div>
+    <div class="md:w-1/3 sm:w-1/2 px-2 pt-8 sm:pt-0">
+      <video  id="player2"  preload="auto">
+        <source src="/assets/video/locucion/VW_2022.mp4#t=0.001" type="video/mp4">
+      </video>
+    </div>
+    <div class="md:w-1/3 sm:w-1/2 px-2 pt-8 sm:pt-0">
+      <video id="player3"  preload="auto">
+        <source src="/assets/video/locucion/Coches.mp4#t=0.001" type="video/mp4">
+      </video>
+    </div>
+    </div>
+
+  </div>
+
+
+
 
       <!-- Cine -->
       <h2 class="pt-8 font-semibold text-2xl pb-4">Estrenos de cine</h2>
@@ -47,34 +73,25 @@ title: Home
       </div>
 
 
- <!-- Publi -->
-<h2 class="font-semibold text-2xl pb-4 pt-16">Publicidad</h2>
-<span>Los últimos trabajos en publicidad para televisión, cine, online, etc.</span>
 
-<div class="pt-6 flex flex-wrap items-center justify-between">
-  <div class="w-full flex flex-wrap">
-  <div class="md:w-1/3 sm:w-1/2 px-2 pt-8 sm:pt-0">
-    <video id="player1" preload="auto">
-      <source src="/assets/video/locucion/Backmarket.mp4#t=0.001" type="video/mp4">
-    </video>
-  </div>
-  <div class="md:w-1/3 sm:w-1/2 px-2 pt-8 sm:pt-0">
-    <video  id="player2"  preload="auto">
-      <source src="/assets/video/locucion/VW_2022.mp4#t=0.001" type="video/mp4">
-    </video>
-  </div>
-  <div class="md:w-1/3 sm:w-1/2 px-2 pt-8 sm:pt-0">
-    <video id="player3"  preload="auto">
-      <source src="/assets/video/locucion/Coches.mp4#t=0.001" type="video/mp4">
-    </video>
-  </div>
-  </div>
+      <!-- Audiolibros -->
+       <h2 class="font-semibold text-2xl pb-4 pt-16">Estrenos de Audiolibros</h2>
+       <span>Los últimos estrenos de audiolibros en Audible, Audioteka, Storytel, etc.</span>
+      {% capture today %}{{'now' | date: '%F'}}{% endcapture %}
+      {% assign audiobooks = site.data.audiobooks | sort: 'date' | reverse %}
+      {% assign counter = 4 %}
+      <div class="pb-8 flex flex-wrap sm:flex-nowrap justify-evenly">
+        {% for audiobook in audiobooks %}
+        {% if audiobook.date <= today and counter !=0 %}
+          {% include audiobook_card.html %}
+        {% assign counter = counter | minus: '1' %}
+        {% endif %}
+        {% endfor %}
 
-</div>
-
-
-
-
+        <a href="/audiolibros" class="mt-8 hover:bg-gray-400 bg-gray-300 h-12 w-full md:h-64 md:w-12 rounded overflow-hidden shadow-lg mx-2 hover:opacity-100">
+          <div class="pt-4 md:pt-32 text-center">+</div>
+        </a>
+      </div>
 
 
 

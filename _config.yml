@@ -23,6 +23,9 @@ collections:
   movies:
     output: true
 
+  audiobooks:
+    output: true
+
 future: true
 
 permalink: pretty
