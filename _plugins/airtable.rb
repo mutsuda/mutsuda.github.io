@@ -4,7 +4,7 @@ require 'active_support/all'
 # require 'active_support/all'
 
 # Pass in api key to client
-@client = Airtable::Client.new("keyxPWWnfEUccGcDt")
+@client = Airtable::Client.new("patBkw4PAnJZCqFIX.e389c77c1d7873d113bb431ed75de3d7ffbfd057b8141190647961ff03113ef3")
 
 # Pass in the app key and table name
 
