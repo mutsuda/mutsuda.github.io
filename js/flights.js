@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     function fetchFlights() {
-        fetch(`http://flights.mutsuda.com/api/flightsinarea?min_lat=${minLat}&max_lat=${maxLat}&min_lon=${minLon}&max_lon=${maxLon}`)
+        fetch(`https://flights.mutsuda.com/api/flightsinarea?min_lat=${minLat}&max_lat=${maxLat}&min_lon=${minLon}&max_lon=${maxLon}`)
             .then(response => response.json())
             .then(data => updateFlights(data.filter(flight => flight.altitude <= 5000))) // Filtrar por altitud
             .catch(error => console.error('Error fetching flight data:', error));
