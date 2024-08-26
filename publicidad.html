@@ -3,44 +3,17 @@ layout: default
 permalink: /publicidad/
 title: Publicidad
 ---
-<!-- <div id="index-banner" class="parallax-container">
-  <div class="section no-pad-bot">
-    <div class="container">
-      <h1 class="header center">Publicidad</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">Algunos trabajos en publicidad. Spots de televisión e internet, cuñas de radio, etc.</h5>
-      </div>
-    </div>
-  </div>
-  <div class="parallax"><img src="{{site.url}}/assets/images/background/background1.jpg" alt="Unsplashed background img 1"></div>
-</div>
-
-
-
-
-
-{% assign ads = site.data.ads | sort: 'date' | reverse %}
-<div class="container">
-  <div class="section">
-    <div class="row">
-      {% for ad in ads %}
-      <div class="col s12 m6 l3">
-        <div class="ads">
-          <div class="ad" data-category="{{ ad.type }} {{ad.date | date: "%Y"}}">
-            {% include advert_card.html %}
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
- </div>
-</div>
--->
 
 <h2 id="reels" class="font-semibold text-2xl pb-4 pt-4">Demos de publicidad</h2>
 A continuación podéis ver algunos trabajos de los trabajos de locución publicitaria realizados. He trabajado para marcas como Volkswagen, Gallina Blanca, Danone, Mercedes, CaixaBank, Unilever, Artiach, Cuétara, Vichy Catalan, Caprabo, Seat, IMC, Bumble, McDonald's, Nestlé, DKV.
 
 <div id="demos" class="flex flex-wrap justify-between">
+  <div class="md:w-1/3 sm:w-1/2 px-2 pt-8">
+    <video id="player1" preload="auto">
+      <source src="/assets/video/locucion/Lays.mp4#t=0.001" type="video/mp4">
+    </video>
+    <h3 class=text-center>Campesinas menos sal -  <b>Lays</b></h3>
+  </div>
   <div class="md:w-1/3 sm:w-1/2 px-2 pt-8">
     <video id="player1" preload="auto">
       <source src="/assets/video/locucion/Backmarket.mp4#t=0.001" type="video/mp4">
