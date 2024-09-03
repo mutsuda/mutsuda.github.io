@@ -1,0 +1,22 @@
+---
+layout: default
+permalink: /music/
+title: Piano Scores
+---
+<h2 class="font-semibold text-2xl pb-4 pt-4">Partituras</h2>
+A continuación podéis descargar algunas partituras que he ido creando o transcribiendo a lo largo de los años.
+
+<div class="markdown-content pb-8">
+{% assign scores = site.data.scores | sort: 'name' | reverse %}
+{% for score in scores %}
+<div class="py-8">
+   <div class="font-bold text-lg pb-2">{{ score.name }}</div>
+   <p>{{ score.description | markdownify }}</p>
+   <div>
+     <a href="{{ score.url}}" class="text-sm btn btn-primary">
+       Descargar Partitura
+     </a>
+   </div>
+</div>
+{% endfor %}
+</div>

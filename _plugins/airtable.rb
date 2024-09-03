@@ -9,28 +9,37 @@ require 'active_support/all'
 # Pass in the app key and table name
 
 @dubbings = @client.table("appsmvaOoTv8P3ypJ", "dubbings")
-@d_records = @dubbings.all(:sort => ["date", :asc])
+@dubbings_records = @dubbings.all(:sort => ["date", :asc])
 
 @ads = @client.table("appsmvaOoTv8P3ypJ", "ads")
-@a_records = @ads.all(:sort => ["date", :asc])
+@ads_records = @ads.all(:sort => ["date", :asc])
 
 @audiobooks = @client.table("appsmvaOoTv8P3ypJ", "audiobooks")
-@a_records = @audiobooks.all(:sort => ["date", :asc])
+@audiobooks_records = @audiobooks.all(:sort => ["date", :asc])
+
+@scores = @client.table("appsmvaOoTv8P3ypJ", "scores")
+@scores_records = @scores.all(:sort => ["name", :asc])
 
 # Change the filename here below but make sure it's in the _data folder.
 File.open("_data/dubbings.json", "w") do |f|
-    data = @d_records.map { |record| record.attributes }
+    data = @dubbings_records.map { |record| record.attributes }
     f.write(data.to_json)
 end
 
 # Change the filename here below but make sure it's in the _data folder.
 File.open("_data/ads.json", "w") do |f|
-    data = @a_records.map { |record| record.attributes }
+    data = @ads_records.map { |record| record.attributes }
     f.write(data.to_json)
 end
 
 # Change the filename here below but make sure it's in the _data folder.
 File.open("_data/audiobooks.json", "w") do |f|
-    data = @a_records.map { |record| record.attributes }
+    data = @audiobooks_records.map { |record| record.attributes }
+    f.write(data.to_json)
+end
+
+# Change the filename here below but make sure it's in the _data folder.
+File.open("_data/scores.json", "w") do |f|
+    data = @scores_records.map { |record| record.attributes }
     f.write(data.to_json)
 end
