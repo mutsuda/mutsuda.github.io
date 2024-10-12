@@ -5,67 +5,71 @@ document.addEventListener('DOMContentLoaded', function () {
     const minLon = 2.13284;
     const maxLon = 2.48867;
 
-
-
     function fetchFlights() {
         fetch(`https://flights.mutsuda.com/api/flightsinarea?min_lat=${minLat}&max_lat=${maxLat}&min_lon=${minLon}&max_lon=${maxLon}`)
             .then(response => response.json())
-            .then(data => updateFlights(data.filter(flight => flight.altitude <= 5000))) // Filtrar por altitud
+            .then(data => {
+                if (Array.isArray(data)) {
+                    updateFlights(data.filter(flight => flight.altitude <= 5000)); // Filtrar por altitud
+                } else {
+                    console.error("Error: El dato recibido no es un arreglo.", data);
+                }
+            })
             .catch(error => console.error('Error fetching flight data:', error));
     }
 
-function updateFlights(flights) {
-    const existingPlanes = document.querySelectorAll('.airplane-container');
-    const flightDataMap = new Map(flights.map(flight => [flight.flight.trim(), flight]));
+    function updateFlights(flights) {
+        const existingPlanes = document.querySelectorAll('.airplane-container');
+        const flightDataMap = new Map(flights.map(flight => [flight.flight.trim(), flight]));
 
-    existingPlanes.forEach(planeContainer => {
-        const flightCode = planeContainer.querySelector('.flight-info').textContent;
-        if (flightDataMap.has(flightCode)) {
-            const flight = flightDataMap.get(flightCode);
-            const xPosition = 100 - ((flight.lon - minLon) / (maxLon - minLon)) * 100;
-            const yPosition = 100 - (flight.altitude / 5000) * 100;
+        existingPlanes.forEach(planeContainer => {
+            const flightCode = planeContainer.querySelector('.flight-info').textContent;
+            if (flightDataMap.has(flightCode)) {
+                const flight = flightDataMap.get(flightCode);
+                const xPosition = 100 - ((flight.lon - minLon) / (maxLon - minLon)) * 100;
+                const yPosition = 100 - (flight.altitude / 5000) * 100;
 
-            planeContainer.style.left = `${xPosition}%`;
-            planeContainer.style.top = `${yPosition}%`;
-            flightDataMap.delete(flightCode);
-        } else {
-            planeContainer.remove(); // Remove the plane if it's no longer in the data
-        }
-    });
+                planeContainer.style.left = `${xPosition}%`;
+                planeContainer.style.top = `${yPosition}%`;
+                flightDataMap.delete(flightCode);
+            } else {
+                planeContainer.remove(); // Remove the plane if it's no longer in the data
+            }
+        });
 
-    // Add new planes
-    flightDataMap.forEach((flight, flightCode) => {
-        createPlaneElement(flight, flightCode);
-    });
-}
+        // Add new planes
+        flightDataMap.forEach((flight, flightCode) => {
+            createPlaneElement(flight, flightCode);
+        });
+    }
 
-function createPlaneElement(flight, flightCode) {
-    const planeContainer = document.createElement('div');
-    planeContainer.className = 'airplane-container';
-    const xPosition = 100 - ((flight.lon - minLon) / (maxLon - minLon)) * 100;
-    const yPosition = 100 - (flight.altitude / 5000) * 100;
+    function createPlaneElement(flight, flightCode) {
+        const planeContainer = document.createElement('div');
+        planeContainer.className = 'airplane-container';
+        const xPosition = 100 - ((flight.lon - minLon) / (maxLon - minLon)) * 100;
+        const yPosition = 100 - (flight.altitude / 5000) * 100;
 
-    planeContainer.style.left = `${xPosition}%`;
-    planeContainer.style.top = `${yPosition}%`;
+        planeContainer.style.left = `${xPosition}%`;
+        planeContainer.style.top = `${yPosition}%`;
 
-    const plane = document.createElement('img');
-    plane.src = '/assets/images/flights/airplane-icon.svg';
-    plane.className = 'airplane';
-    plane.style.width = '50px';  // Fuerza el tamaño a ser constante
-    plane.style.height = '50px'; // Fuerza el tamaño a ser constante
+        const plane = document.createElement('img');
+        plane.src = '/assets/images/flights/airplane-icon.svg';
+        plane.className = 'airplane';
+        plane.style.width = '50px';  // Fuerza el tamaño a ser constante
+        plane.style.height = '50px'; // Fuerza el tamaño a ser constante
 
-    const flightInfo = document.createElement('div');
-    flightInfo.className = 'flight-info';
-    flightInfo.textContent = flightCode;
+        const flightInfo = document.createElement('div');
+        flightInfo.className = 'flight-info';
+        flightInfo.textContent = flightCode;
 
-    planeContainer.appendChild(plane);
-    planeContainer.appendChild(flightInfo);
-    flightArea.appendChild(planeContainer);
-}
+        planeContainer.appendChild(plane);
+        planeContainer.appendChild(flightInfo);
+        flightArea.appendChild(planeContainer);
+    }
+
     setInterval(fetchFlights, 3000); // Actualizar cada 3 segundos
     fetchFlights(); // Llamada inicial
 });
-
 
 document.addEventListener('DOMContentLoaded', function () {
     const scaleContainer = document.getElementById('altitudeScale');
