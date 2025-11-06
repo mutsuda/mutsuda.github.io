@@ -45,6 +45,7 @@ module Jekyll
         FileUtils.mkdir_p(data_dir) unless File.directory?(data_dir)
 
         # Change the filename here below but make sure it's in the _data folder.
+        # Always overwrite files when we have API key
         File.open(File.join(data_dir, "dubbings.json"), "w") do |f|
           data = dubbings_records.map { |record| record.attributes }
           f.write(data.to_json)
@@ -67,6 +68,8 @@ module Jekyll
           data = scores_records.map { |record| record.attributes }
           f.write(data.to_json)
         end
+        
+        Jekyll.logger.info "Airtable Generator:", "Successfully fetched and saved data from Airtable"
       rescue => e
         Jekyll.logger.warn "Airtable Generator:", "Failed to fetch data from Airtable: #{e.message}"
         Jekyll.logger.warn "Airtable Generator:", "Using existing data files if available"

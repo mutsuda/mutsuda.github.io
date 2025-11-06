@@ -7,7 +7,7 @@ title: Piano Scores
 A continuación podéis descargar algunas partituras que he ido creando o transcribiendo a lo largo de los años.
 
 <div class="markdown-content pb-8">
-{% if site.data.scores %}
+{% if site.data.scores and site.data.scores.size > 0 %}
   {% assign scores = site.data.scores | sort: 'name' | reverse %}
   {% for score in scores %}
 <div class="py-8">
