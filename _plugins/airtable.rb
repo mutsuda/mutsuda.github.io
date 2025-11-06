@@ -14,6 +14,15 @@ module Jekyll
         api_key = ENV['AIRTABLE_API_KEY']
         unless api_key
           Jekyll.logger.warn "Airtable Generator:", "AIRTABLE_API_KEY not set, skipping Airtable data fetch"
+          # Create empty JSON files to prevent Liquid errors
+          data_dir = File.join(site.source, "_data")
+          FileUtils.mkdir_p(data_dir) unless File.directory?(data_dir)
+          ['dubbings.json', 'ads.json', 'audiobooks.json', 'scores.json'].each do |filename|
+            file_path = File.join(data_dir, filename)
+            unless File.exist?(file_path)
+              File.open(file_path, "w") { |f| f.write("[]") }
+            end
+          end
           return
         end
         client = Airtable::Client.new(api_key)
