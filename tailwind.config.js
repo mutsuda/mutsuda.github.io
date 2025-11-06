@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./**/*.{html,js}"],
   theme: {
@@ -60,10 +61,6 @@ module.exports = {
         '112': '28rem',
       },
     }
-  },
-  variants: {
-    backgroundColor: ['responsive','hover','focus','active','group-hover'],
-    visibility: ['responsive','hover','focus'],
   },
   plugins: []
 }
