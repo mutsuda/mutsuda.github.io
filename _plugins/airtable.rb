@@ -90,7 +90,13 @@ module Jekyll
           f.write(data.to_json)
         end
         
-        Jekyll.logger.info "Airtable Generator:", "Successfully fetched and saved data from Airtable"
+        # Only log success if we actually got data from at least one table
+        total_records = dubbings_records.length + ads_records.length + audiobooks_records.length + scores_records.length
+        if total_records > 0
+          Jekyll.logger.info "Airtable Generator:", "Successfully fetched and saved #{total_records} total records from Airtable"
+        else
+          Jekyll.logger.warn "Airtable Generator:", "No records fetched from Airtable - all tables failed or are empty"
+        end
       rescue => e
         Jekyll.logger.warn "Airtable Generator:", "Failed to fetch data from Airtable: #{e.message}"
         Jekyll.logger.warn "Airtable Generator:", "Using existing data files if available"
