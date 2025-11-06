@@ -20,15 +20,6 @@ module Jekyll
         Jekyll.logger.info "Airtable Generator:", "API key found, length: #{api_key.length} characters"
         # Strip any whitespace that might have been added
         api_key = api_key.strip
-          # Create empty JSON files to prevent Liquid errors
-          data_dir = File.join(site.source, "_data")
-          FileUtils.mkdir_p(data_dir) unless File.directory?(data_dir)
-          ['dubbings.json', 'ads.json', 'audiobooks.json', 'scores.json'].each do |filename|
-            file_path = File.join(data_dir, filename)
-            unless File.exist?(file_path)
-              File.open(file_path, "w") { |f| f.write("[]") }
-            end
-          end
         client = Airtable::Client.new(api_key)
 
         # Pass in the app key and table name
