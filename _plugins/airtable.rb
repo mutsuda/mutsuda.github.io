@@ -85,10 +85,12 @@ module Jekyll
         end
 
         # Change the filename here below but make sure it's in the _data folder.
+        scores_data = scores_records.map { |record| record.attributes }
         File.open(File.join(data_dir, "scores.json"), "w") do |f|
-          data = scores_records.map { |record| record.attributes }
-          f.write(data.to_json)
+          f.write(scores_data.to_json)
         end
+        # Also register the data directly with Jekyll to ensure it's available
+        site.data['scores'] = scores_data
         
         # Only log success if we actually got data from at least one table
         total_records = dubbings_records.length + ads_records.length + audiobooks_records.length + scores_records.length
