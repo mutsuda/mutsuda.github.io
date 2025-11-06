@@ -13,3 +13,4 @@ gem 'airtable', github: "Airtable/airtable-ruby"
 
 gem 'jekyll-assets'
 gem 'nokogiri'
+gem 'kramdown-parser-gfm'
