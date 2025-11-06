@@ -73,6 +73,14 @@ module Jekyll
       rescue => e
         Jekyll.logger.warn "Airtable Generator:", "Failed to fetch data from Airtable: #{e.message}"
         Jekyll.logger.warn "Airtable Generator:", "Using existing data files if available"
+        # Don't overwrite existing files when fetch fails
+        # Only create scores.json if it doesn't exist (it's not in the repo)
+        data_dir = File.join(site.source, "_data")
+        scores_file = File.join(data_dir, "scores.json")
+        unless File.exist?(scores_file)
+          FileUtils.mkdir_p(data_dir) unless File.directory?(data_dir)
+          File.open(scores_file, "w") { |f| f.write("[]") }
+        end
       end
     end
   end
