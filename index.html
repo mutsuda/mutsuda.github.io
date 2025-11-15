@@ -54,13 +54,15 @@ title: Home
 <h2 class="font-semibold text-2xl pb-4 pt-16">Estrenos de plataformas y TV</h2>
 <span>Los últimos estrenos en plataformas y televisión (Netflix, HBO Max, Disney+, Amazon Prime Video, etc.)</span>
 {% capture today %}{{'now' | date: '%F'}}{% endcapture %}
-{% assign movies = site.data.dubbings | where: "type","Serie" | sort: 'date' | reverse %}
+{% assign all_movies = site.data.dubbings | sort: 'date' | reverse %}
 {% assign counter = 4 %}
 <div class="flex flex-wrap sm:flex-nowrap justify-evenly">
-  {% for movie in movies %}
-  {% if movie.date <= today and counter !=0 %}
-    {% include movie_card.html %}
-  {% assign counter = counter | minus: '1' %}
+  {% for movie in all_movies %}
+  {% if movie.type == "Serie" or movie.type == "Video" %}
+    {% if movie.date <= today and counter !=0 %}
+      {% include movie_card.html %}
+      {% assign counter = counter | minus: '1' %}
+    {% endif %}
   {% endif %}
   {% endfor %}
 
