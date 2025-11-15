@@ -2,115 +2,117 @@ require 'json'
 require 'airtable'
 require 'active_support/all'
 
-module Jekyll
-  class AirtableGenerator < Generator
-    safe true
-    priority :low
+# Get API token from environment variable (Netlify)
+AIRTABLE_TOKEN = ENV['AIRTABLE_TOKEN'] || ENV['AIRTABLE_API_KEY']
+AIRTABLE_BASE_ID = "appsmvaOoTv8P3ypJ"
 
-    def generate(site)
-      begin
-        # Pass in api key to client from environment variable
-        # Set AIRTABLE_API_KEY in Netlify environment variables
-        api_key = ENV['AIRTABLE_API_KEY']
-        unless api_key
-          Jekyll.logger.warn "Airtable Generator:", "AIRTABLE_API_KEY not set, skipping Airtable data fetch"
-          return
-        end
-        # Log API key presence (but not the actual key for security)
-        Jekyll.logger.info "Airtable Generator:", "API key found, length: #{api_key.length} characters"
-        # Strip any whitespace that might have been added
-        api_key = api_key.strip
-        client = Airtable::Client.new(api_key)
-
-        # Pass in the app key and table name
-        # Fetch each table separately to handle errors gracefully
-        dubbings_records = []
-        ads_records = []
-        audiobooks_records = []
-        scores_records = []
-        
-        begin
-          dubbings = client.table("appsmvaOoTv8P3ypJ", "dubbings")
-          dubbings_records = dubbings.all(:sort => ["date", :asc])
-          Jekyll.logger.info "Airtable Generator:", "Fetched #{dubbings_records.length} dubbings records"
-        rescue => e
-          Jekyll.logger.warn "Airtable Generator:", "Failed to fetch dubbings: #{e.message}"
-        end
-        
-        begin
-          ads = client.table("appsmvaOoTv8P3ypJ", "ads")
-          ads_records = ads.all(:sort => ["date", :asc])
-          Jekyll.logger.info "Airtable Generator:", "Fetched #{ads_records.length} ads records"
-        rescue => e
-          Jekyll.logger.warn "Airtable Generator:", "Failed to fetch ads: #{e.message}"
-        end
-        
-        begin
-          audiobooks = client.table("appsmvaOoTv8P3ypJ", "audiobooks")
-          audiobooks_records = audiobooks.all(:sort => ["date", :asc])
-          Jekyll.logger.info "Airtable Generator:", "Fetched #{audiobooks_records.length} audiobooks records"
-        rescue => e
-          Jekyll.logger.warn "Airtable Generator:", "Failed to fetch audiobooks: #{e.message}"
-        end
-        
-        begin
-          scores = client.table("appsmvaOoTv8P3ypJ", "scores")
-          scores_records = scores.all(:sort => ["name", :asc])
-          Jekyll.logger.info "Airtable Generator:", "Fetched #{scores_records.length} scores records"
-        rescue => e
-          Jekyll.logger.warn "Airtable Generator:", "Failed to fetch scores: #{e.message}"
-        end
-
-        # Ensure _data directory exists
-        data_dir = File.join(site.source, "_data")
-        FileUtils.mkdir_p(data_dir) unless File.directory?(data_dir)
-
-        # Change the filename here below but make sure it's in the _data folder.
-        # Always overwrite files when we have API key
-        File.open(File.join(data_dir, "dubbings.json"), "w") do |f|
-          data = dubbings_records.map { |record| record.attributes }
-          f.write(data.to_json)
-        end
-
-        # Change the filename here below but make sure it's in the _data folder.
-        File.open(File.join(data_dir, "ads.json"), "w") do |f|
-          data = ads_records.map { |record| record.attributes }
-          f.write(data.to_json)
-        end
-
-        # Change the filename here below but make sure it's in the _data folder.
-        File.open(File.join(data_dir, "audiobooks.json"), "w") do |f|
-          data = audiobooks_records.map { |record| record.attributes }
-          f.write(data.to_json)
-        end
-
-        # Change the filename here below but make sure it's in the _data folder.
-        scores_data = scores_records.map { |record| record.attributes }
-        File.open(File.join(data_dir, "scores.json"), "w") do |f|
-          f.write(scores_data.to_json)
-        end
-        # Also register the data directly with Jekyll to ensure it's available
-        site.data['scores'] = scores_data
-        
-        # Only log success if we actually got data from at least one table
-        total_records = dubbings_records.length + ads_records.length + audiobooks_records.length + scores_records.length
-        if total_records > 0
-          Jekyll.logger.info "Airtable Generator:", "Successfully fetched and saved #{total_records} total records from Airtable"
-        else
-          Jekyll.logger.warn "Airtable Generator:", "No records fetched from Airtable - all tables failed or are empty"
-        end
-      rescue => e
-        Jekyll.logger.warn "Airtable Generator:", "Failed to fetch data from Airtable: #{e.message}"
-        Jekyll.logger.warn "Airtable Generator:", "Using existing data files if available"
-        # Don't overwrite existing files when fetch fails
-        # Only create scores.json if it doesn't exist (it's not in the repo)
-        data_dir = File.join(site.source, "_data")
-        scores_file = File.join(data_dir, "scores.json")
-        unless File.exist?(scores_file)
-          FileUtils.mkdir_p(data_dir) unless File.directory?(data_dir)
-          File.open(scores_file, "w") { |f| f.write("[]") }
-        end
-      end
-    end
-  end
+if AIRTABLE_TOKEN.nil? || AIRTABLE_TOKEN.empty?
+  puts "✗ ERROR: No se encontró el token de Airtable"
+  puts "  Configura la variable de entorno AIRTABLE_TOKEN en Netlify"
+  puts "  Para desarrollo local, configura: export AIRTABLE_TOKEN='tu_token'"
+  exit 1
 end
+
+@client = Airtable::Client.new(AIRTABLE_TOKEN)
+
+# Pass in the app key and table name
+
+begin
+  @dubbings = @client.table(AIRTABLE_BASE_ID, "dubbings")
+  # Get all records with explicit pagination handling
+  @dubbings_records = @dubbings.all(:sort => ["date", :asc])
+  puts "✓ Obtenidos #{@dubbings_records.count} registros de dubbings"
+rescue Airtable::Error => e
+  puts "✗ ERROR obteniendo dubbings: #{e.message}"
+  puts "  Verifica que el token de Airtable sea válido y tenga los permisos correctos"
+  exit 1
+rescue => e
+  puts "✗ Error inesperado obteniendo dubbings: #{e.message}"
+  exit 1
+end
+
+begin
+  @ads = @client.table(AIRTABLE_BASE_ID, "ads")
+  @ads_records = @ads.all(:sort => ["date", :asc])
+  puts "✓ Obtenidos #{@ads_records.count} registros de ads"
+rescue Airtable::Error => e
+  puts "✗ ERROR obteniendo ads: #{e.message}"
+  exit 1
+rescue => e
+  puts "✗ Error inesperado obteniendo ads: #{e.message}"
+  exit 1
+end
+
+begin
+  @audiobooks = @client.table(AIRTABLE_BASE_ID, "audiobooks")
+  @audiobooks_records = @audiobooks.all(:sort => ["date", :asc])
+  puts "✓ Obtenidos #{@audiobooks_records.count} registros de audiobooks"
+rescue Airtable::Error => e
+  puts "✗ ERROR obteniendo audiobooks: #{e.message}"
+  exit 1
+rescue => e
+  puts "✗ Error inesperado obteniendo audiobooks: #{e.message}"
+  exit 1
+end
+
+begin
+  @scores = @client.table(AIRTABLE_BASE_ID, "scores")
+  @scores_records = @scores.all(:sort => ["name", :asc])
+  puts "✓ Obtenidos #{@scores_records.count} registros de scores"
+rescue Airtable::Error => e
+  puts "✗ ERROR obteniendo scores: #{e.message}"
+  exit 1
+rescue => e
+  puts "✗ Error inesperado obteniendo scores: #{e.message}"
+  exit 1
+end
+
+# Change the filename here below but make sure it's in the _data folder.
+begin
+  File.open("_data/dubbings.json", "w") do |f|
+    data = @dubbings_records.map { |record| record.attributes }
+    f.write(data.to_json)
+  end
+  puts "✓ Archivo dubbings.json actualizado con #{@dubbings_records.count} registros"
+rescue => e
+  puts "✗ Error escribiendo dubbings.json: #{e.message}"
+  exit 1
+end
+
+# Change the filename here below but make sure it's in the _data folder.
+begin
+  File.open("_data/ads.json", "w") do |f|
+    data = @ads_records.map { |record| record.attributes }
+    f.write(data.to_json)
+  end
+  puts "✓ Archivo ads.json actualizado con #{@ads_records.count} registros"
+rescue => e
+  puts "✗ Error escribiendo ads.json: #{e.message}"
+  exit 1
+end
+
+# Change the filename here below but make sure it's in the _data folder.
+begin
+  File.open("_data/audiobooks.json", "w") do |f|
+    data = @audiobooks_records.map { |record| record.attributes }
+    f.write(data.to_json)
+  end
+  puts "✓ Archivo audiobooks.json actualizado con #{@audiobooks_records.count} registros"
+rescue => e
+  puts "✗ Error escribiendo audiobooks.json: #{e.message}"
+  exit 1
+end
+
+# Change the filename here below but make sure it's in the _data folder.
+begin
+  File.open("_data/scores.json", "w") do |f|
+    data = @scores_records.map { |record| record.attributes }
+    f.write(data.to_json)
+  end
+  puts "✓ Archivo scores.json actualizado con #{@scores_records.count} registros"
+rescue => e
+  puts "✗ Error escribiendo scores.json: #{e.message}"
+  exit 1
+end
+
+puts "\n✓ Todos los archivos se han actualizado correctamente"
