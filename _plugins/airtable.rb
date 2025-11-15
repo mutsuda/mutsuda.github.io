@@ -3,7 +3,7 @@ require 'airtable'
 require 'active_support/all'
 
 # Get API token from environment variable (Netlify)
-AIRTABLE_TOKEN = ENV['AIRTABLE_TOKEN'] || ENV['AIRTABLE_API_KEY']
+AIRTABLE_TOKEN = ENV['AIRTABLE_TOKEN'] || ENV['AIRTABLE_API_KEY'] || ENV['AIRTABLEK_API_KEY']
 AIRTABLE_BASE_ID = "appsmvaOoTv8P3ypJ"
 
 if AIRTABLE_TOKEN.nil? || AIRTABLE_TOKEN.empty?
