@@ -1,9 +1,12 @@
 [build]
   command = "npm run build && bundle exec jekyll build"
   publish = "_site"
-  image = "ubuntu-22.04"
+  image = "ubuntu-24.04"
 
 [build.environment]
   NODE_VERSION = "18"
   RUBY_VERSION = "3.1.4"
+
+[prerender]
+  enabled = false
 
